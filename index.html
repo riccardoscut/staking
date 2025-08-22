@@ -1100,6 +1100,17 @@
         .logo-char.char-4 { 
             animation-delay: 3.6s; 
             color: white !important; 
+            background-color: transparent !important;
+        }
+        
+        /* Force white color for char-4 with maximum specificity */
+        .css-logo .logo-wrapper .logo-char.char-4 {
+            color: white !important;
+        }
+        
+        /* Even more specific override */
+        .cyberpunk-logo-container .css-logo .logo-wrapper .logo-char.char-4 {
+            color: white !important;
         }
         .logo-char.char-5 { animation-delay: 4.8s; }
         
@@ -1274,7 +1285,7 @@
                         <div class="logo-wrapper relative">
                             <!-- CSS Generated Logo -->
                                                                     <div class="css-logo text-[8rem] md:text-[10rem] lg:text-[12rem] xl:text-[14rem] 2xl:text-[16rem] font-light text-white relative z-20 drop-shadow-2xl">
-                            <span class="logo-char char-1">[</span><span class="logo-char char-2">.</span><span class="logo-char char-3">/</span><span class="logo-char char-4" style="font-weight: bold !important;">'</span><span class="logo-char char-5">]</span>
+                            <span class="logo-char char-1">[</span><span class="logo-char char-2">.</span><span class="logo-char char-3">/</span><span class="logo-char char-4" style="font-weight: bold !important; color: white !important; background-color: rgba(255,255,255,0.1) !important;">'</span><span class="logo-char char-5">]</span>
                         </div>
                             
                             <!-- Floating Particles Around Logo -->
