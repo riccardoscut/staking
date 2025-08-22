@@ -1,0 +1,232 @@
+/* Component Library - Futuristic Crypto Design System */
+
+/* Base utility classes */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.neon-border {
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
+}
+
+.neon-glow {
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+.neon-glow-lg {
+  box-shadow: 0 0 40px rgba(0, 240, 255, 0.4);
+}
+
+/* Button components */
+.btn {
+  @apply px-6 py-3 rounded-lg font-medium transition-all duration-200 ease-out;
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-bg-base;
+}
+
+.btn-primary {
+  @apply bg-gradient-to-r from-accent-cyan to-accent-purple text-white;
+  @apply hover:shadow-neon-lg hover:-translate-y-0.5;
+  @apply focus:ring-accent-cyan;
+}
+
+.btn-secondary {
+  @apply bg-transparent border border-border-default text-text-primary;
+  @apply hover:border-accent-cyan hover:text-accent-cyan hover:shadow-neon;
+  @apply focus:ring-accent-cyan;
+}
+
+.btn-text {
+  @apply bg-transparent text-accent-cyan hover:text-accent-lime;
+  @apply hover:underline decoration-accent-lime underline-offset-4;
+}
+
+/* Card components */
+.card {
+  @apply glass rounded-xl p-6 transition-all duration-200 ease-out;
+  @apply hover:glass-strong hover:-translate-y-1 hover:shadow-card;
+}
+
+.card-accent {
+  @apply glass-strong border-accent rounded-xl p-6;
+  @apply hover:neon-glow hover:-translate-y-1;
+}
+
+.step-card {
+  @apply relative p-8 rounded-2xl;
+  @apply bg-bg-card border border-border-accent;
+  @apply transition-all duration-300 ease-out;
+  @apply min-h-[450px];
+  @apply flex flex-col;
+  @apply backdrop-blur-xl;
+}
+
+.step-card .step-number {
+  @apply z-10;
+  @apply shadow-neon-lg;
+}
+
+/* Form components */
+.input {
+  @apply w-full px-4 py-3 bg-bg-surface border border-border-default rounded-lg;
+  @apply text-text-primary placeholder-text-muted;
+  @apply focus:border-accent-cyan focus:ring-2 focus:ring-accent-cyan focus:ring-opacity-20;
+  @apply transition-all duration-200 ease-out;
+}
+
+.input:focus {
+  box-shadow: 0 0 0 3px rgba(0, 240, 255, 0.1);
+}
+
+/* Navigation */
+.nav-link {
+  @apply text-text-secondary hover:text-text-primary transition-colors duration-200;
+  @apply relative after:absolute after:bottom-0 after:left-0 after:h-0.5;
+  @apply after:w-0 after:bg-gradient-to-r after:from-accent-cyan after:to-accent-purple;
+  @apply after:transition-all after:duration-300 hover:after:w-full;
+}
+
+.nav-link.active {
+  @apply text-text-primary after:w-full;
+}
+
+/* Grid system */
+.grid-crypto {
+  @apply grid gap-6;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-crypto-2 {
+  @apply grid gap-8;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .grid-crypto-2 {
+    grid-template-columns: 1fr;
+    max-width: 800px;
+  }
+}
+
+/* Typography utilities */
+.text-gradient {
+  @apply bg-gradient-to-r from-accent-cyan via-accent-purple to-accent-magenta;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-glow {
+  text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+}
+
+/* Animation utilities */
+.hover-lift {
+  @apply transition-all duration-200 ease-out;
+  @apply hover:-translate-y-1 hover:shadow-lg;
+}
+
+.hover-glow {
+  @apply transition-all duration-200 ease-out;
+  @apply hover:shadow-neon hover:scale-105;
+}
+
+/* Background patterns */
+.bg-pattern-grid {
+  background-image: 
+    linear-gradient(rgba(0, 240, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.bg-pattern-dots {
+  background-image: radial-gradient(circle, rgba(0, 240, 255, 0.3) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Scanning line effect */
+.scan-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.scan-line::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.8), transparent);
+  animation: scan 3s linear infinite;
+}
+
+/* Matrix rain effect */
+.matrix-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.matrix-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle, rgba(0, 240, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  animation: matrix 20s linear infinite;
+  pointer-events: none;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .grid-crypto {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Dark mode overrides */
+.dark .glass {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.dark .glass-strong {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Focus states for accessibility */
+.btn:focus,
+.input:focus,
+.nav-link:focus {
+  outline: 2px solid rgba(0, 240, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .card,
+  .hover-lift,
+  .hover-glow {
+    transition: none;
+  }
+  
+  .scan-line::before,
+  .matrix-bg::before {
+    animation: none;
+  }
+}

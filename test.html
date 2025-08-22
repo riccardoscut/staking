@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Test</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        /* Test if custom CSS is working */
+        .test-bg { background-color: #0B0F14 !important; }
+        .test-text { color: #E6F1FF !important; }
+        .test-accent { color: #00F0FF !important; }
+    </style>
+</head>
+<body class="test-bg test-text p-8">
+    <h1 class="text-4xl font-bold test-accent mb-4">Tailwind Test Page</h1>
+    
+    <div class="space-y-4">
+        <div class="p-4 bg-red-500 text-white rounded">Red Box (Tailwind Default)</div>
+        <div class="p-4 bg-blue-500 text-white rounded">Blue Box (Tailwind Default)</div>
+        <div class="p-4 test-bg border border-white rounded">Custom Background</div>
+        <div class="p-4 bg-gray-800 border border-accent-cyan rounded">Gray with Cyan Border</div>
+    </div>
+    
+    <div class="mt-8 p-4 bg-white text-black rounded">
+        <h2 class="text-xl font-bold mb-2">Debug Info:</h2>
+        <p>If you see a dark background and cyan text, custom CSS is working.</p>
+        <p>If you see white background, there's a CSS issue.</p>
+    </div>
+</body>
+</html>

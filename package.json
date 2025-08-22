@@ -1,0 +1,47 @@
+{
+  "name": "signature-staking-futuristic",
+  "version": "1.0.0",
+  "description": "Signature Staking website with futuristic crypto design system",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "serve": "npx serve .",
+    "lint:css": "npx stylelint '**/*.css'",
+    "lint:js": "npx eslint '**/*.js'",
+    "format": "npx prettier --write '**/*.{html,css,js,json,md}'",
+    "test": "echo 'No tests specified' && exit 0"
+  },
+  "keywords": [
+    "cardano",
+    "staking",
+    "cryptocurrency",
+    "blockchain",
+    "futuristic",
+    "design-system",
+    "tailwind-css",
+    "glassmorphism"
+  ],
+  "author": "Signature Team",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/signaturestaking/staking-website.git"
+  },
+  "homepage": "https://staking.da-sign.com",
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0",
+    "stylelint": "^15.0.0",
+    "stylelint-config-standard": "^34.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
+}
