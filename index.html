@@ -886,9 +886,16 @@
             }
         }
 
-        /* Enhanced Cyberpunk Logo Integration */
+        /* Enhanced Cyberpunk Logo Integration - Clean Version with Exo 2 */
         .cyberpunk-logo-container {
-            filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.3));
+            padding: 2rem;
+            margin: 2rem;
+        }
+        
+        /* Exo 2 Font Enhancement for Logo */
+        .css-logo {
+            font-feature-settings: 'liga' 1, 'kern' 1, 'ss01' 1;
+            text-rendering: optimizeLegibility;
         }
         
         .logo-glow {
@@ -907,49 +914,9 @@
             animation: logo-border-pulse 3s ease-in-out infinite;
         }
         
-        .logo-particle {
-            position: absolute;
-            filter: drop-shadow(0 0 6px currentColor);
-        }
+        /* Particle styles removed for clean logo space */
         
-        .logo-particle.particle-1 {
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: logo-particle-float 6s ease-in-out infinite;
-        }
-        
-        .logo-particle.particle-2 {
-            top: 50%;
-            right: -10px;
-            transform: translateY(-50%);
-            animation: logo-particle-float 6s ease-in-out infinite;
-        }
-        
-        .logo-particle.particle-3 {
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: logo-particle-float 6s ease-in-out infinite;
-        }
-        
-        .logo-particle.particle-4 {
-            top: 50%;
-            left: -10px;
-            transform: translateY(-50%);
-            animation: logo-particle-float 6s ease-in-out infinite;
-        }
-        
-        .cyberpunk-accent-line {
-            opacity: 0.6;
-            filter: drop-shadow(0 0 4px currentColor);
-            animation: accent-line-glow 4s ease-in-out infinite;
-        }
-        
-        .cyberpunk-accent-line.line-1 { animation-delay: 0s; }
-        .cyberpunk-accent-line.line-2 { animation-delay: 1s; }
-        .cyberpunk-accent-line.line-3 { animation-delay: 2s; }
-        .cyberpunk-accent-line.line-4 { animation-delay: 3s; }
+        /* Accent line styles removed for clean logo space */
         
         @keyframes logo-glow-pulse {
             0%, 100% { 
@@ -979,48 +946,16 @@
             }
         }
         
-        @keyframes logo-particle-float {
-            0%, 100% { 
-                transform: translateY(0px) scale(1);
-                opacity: 0.7;
-            }
-            25% { 
-                transform: translateY(-8px) scale(1.2);
-                opacity: 1;
-            }
-            50% { 
-                transform: translateY(-12px) scale(0.8);
-                opacity: 0.8;
-            }
-            75% { 
-                transform: translateY(-6px) scale(1.1);
-                opacity: 0.9;
-            }
-        }
+        /* Particle float animation removed */
         
-        @keyframes accent-line-glow {
-            0%, 100% { 
-                opacity: 0.4;
-                filter: drop-shadow(0 0 4px currentColor);
-            }
-            50% { 
-                opacity: 0.8;
-                filter: drop-shadow(0 0 8px currentColor);
-            }
-        }
+        /* Accent line glow animation removed */
         
         /* Logo Hover Effects */
         .cyberpunk-logo-container:hover .logo-glow {
             animation: logo-glow-hover 0.5s ease-out forwards;
         }
         
-        .cyberpunk-logo-container:hover .logo-particle {
-            animation-duration: 3s;
-        }
-        
-        .cyberpunk-logo-container:hover .cyberpunk-accent-line {
-            animation-duration: 2s;
-        }
+        /* Particle and accent line hover effects removed for clean logo space */
         
         @keyframes logo-glow-hover {
             to { 
@@ -1055,43 +990,38 @@
         /* CSS Generated Logo - Cyberpunk Characters - Fully Responsive */
         .css-logo {
             font-family: 'Exo 2', 'Inter', 'Segoe UI', 'Roboto', sans-serif;
-            font-weight: 300;
-            text-shadow: 
-                0 0 20px rgba(255, 255, 255, 0.6),
-                0 0 40px rgba(255, 255, 255, 0.4),
-                0 0 60px rgba(255, 255, 255, 0.2);
-            animation: logo-glow-pulse 3s ease-in-out infinite;
+            font-weight: 400;
+            font-feature-settings: 'liga' 1, 'kern' 1;
+            /* No animation - clean and static */
             /* Responsive sizing - MOLTO PIÙ GRANDE */
             font-size: clamp(8rem, 25vw, 22rem);
             line-height: 1;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.05em;
         }
         
         /* Mobile optimization - MOLTO PIÙ GRANDE */
         @media (max-width: 768px) {
             .css-logo {
                 font-size: clamp(6rem, 20vw, 12rem);
-                text-shadow: 
-                    0 0 15px rgba(255, 255, 255, 0.8),
-                    0 0 30px rgba(255, 255, 255, 0.6);
             }
         }
         
         @media (max-width: 480px) {
             .css-logo {
                 font-size: clamp(5rem, 18vw, 10rem);
-                text-shadow: 
-                    0 0 10px rgba(255, 255, 255, 0.8),
-                    0 0 20px rgba(255, 255, 255, 0.6);
             }
         }
         
-        /* Clean, Elegant Logo Styling */
+        /* Clean, Elegant Logo Styling with Exo 2 - All Characters Bright */
         .logo-char {
             display: inline-block;
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 400;
             transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             animation: char-professional 6s ease-in-out infinite;
-            color: #FFFFFF; /* Pure white for all characters */
+            color: #FFFFFF !important; /* Pure white for all characters */
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.4) !important;
+            background-color: transparent !important;
         }
         
         .logo-char.char-1 { animation-delay: 0s; }
@@ -1099,19 +1029,10 @@
         .logo-char.char-3 { animation-delay: 2.4s; }
         .logo-char.char-4 { 
             animation-delay: 3.6s; 
-            color: white !important; 
-            background-color: transparent !important;
+            font-weight: bold !important;
         }
         
-        /* Force white color for char-4 with maximum specificity */
-        .css-logo .logo-wrapper .logo-char.char-4 {
-            color: white !important;
-        }
-        
-        /* Even more specific override */
-        .cyberpunk-logo-container .css-logo .logo-wrapper .logo-char.char-4 {
-            color: white !important;
-        }
+        /* All characters now have the same brilliant white effect */
         .logo-char.char-5 { animation-delay: 4.8s; }
         
         /* Logo Hover Effects */
@@ -1121,23 +1042,7 @@
             color: #F0F0F0; /* Slightly dimmed white on hover */
         }
         
-        /* Responsive particle positioning */
-        .logo-particle {
-            position: absolute;
-            filter: drop-shadow(0 0 6px currentColor);
-        }
-        
-        @media (max-width: 768px) {
-            .logo-particle {
-                transform: scale(0.7);
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .logo-particle {
-                transform: scale(0.5);
-            }
-        }
+        /* Particle styles completely removed for clean logo space */
         
         /* Logo Glow Pulse Animation */
         @keyframes logo-glow-pulse {
@@ -1278,28 +1183,19 @@
                 <!-- Logo -->
                 <div class="mb-12">
                     <div class="cyberpunk-logo-container relative inline-block mb-16 group">
-                        <!-- Logo Glow Effect -->
-                        <div class="logo-glow absolute inset-0 bg-gradient-radial from-accent-cyan/20 via-accent-purple/10 to-transparent rounded-full blur-xl scale-150 group-hover:scale-175 transition-all duration-500"></div>
+                        <!-- No logo glow - clean space -->
                         
                         <!-- Main Logo Container -->
                         <div class="logo-wrapper relative">
                             <!-- CSS Generated Logo -->
-                                                                    <div class="css-logo text-[8rem] md:text-[10rem] lg:text-[12rem] xl:text-[14rem] 2xl:text-[16rem] font-light text-white relative z-20 drop-shadow-2xl">
-                            <span class="logo-char char-1">[</span><span class="logo-char char-2">.</span><span class="logo-char char-3">/</span><span class="logo-char char-4" style="font-weight: bold !important; color: white !important; background-color: rgba(255,255,255,0.1) !important;">'</span><span class="logo-char char-5">]</span>
+                                                                    <div class="css-logo text-[8rem] md:text-[10rem] lg:text-[12rem] xl:text-[14rem] 2xl:text-[16rem] font-light text-white relative z-20">
+                            <span class="logo-char char-1">[</span><span class="logo-char char-2">.</span><span class="logo-char char-3">/</span><span class="logo-char char-4">'</span><span class="logo-char char-5">]</span>
                         </div>
                             
-                            <!-- Floating Particles Around Logo -->
-                            <div class="logo-particle particle-1 absolute w-2 h-2 bg-accent-cyan rounded-full animate-float"></div>
-                            <div class="logo-particle particle-2 absolute w-1.5 h-1.5 bg-accent-purple rounded-full animate-float" style="animation-delay: 0.5s;"></div>
-                            <div class="logo-particle particle-3 absolute w-1 h-1 bg-accent-magenta rounded-full animate-float" style="animation-delay: 1s;"></div>
-                            <div class="logo-particle particle-4 absolute w-1.5 h-1.5 bg-accent-lime rounded-full animate-float" style="animation-delay: 1.5s;"></div>
+                            <!-- Logo without particles - clean space -->
                         </div>
                         
-                        <!-- Cyberpunk Accent Lines -->
-                        <div class="cyberpunk-accent-line line-1 absolute top-0 left-1/2 w-px h-8 bg-gradient-to-b from-accent-cyan to-transparent"></div>
-                        <div class="cyberpunk-accent-line line-2 absolute bottom-0 left-1/2 w-px h-8 bg-gradient-to-t from-accent-purple to-transparent"></div>
-                        <div class="cyberpunk-accent-line line-3 absolute left-0 top-1/2 w-8 h-px bg-gradient-to-r from-accent-magenta to-transparent"></div>
-                        <div class="cyberpunk-accent-line line-4 absolute right-0 top-1/2 w-8 h-px bg-gradient-to-l from-accent-lime to-transparent"></div>
+                        <!-- Clean logo space - no accent lines -->
                     </div>
                 </div>
 
