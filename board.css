@@ -187,7 +187,12 @@ h3 { font-family: var(--cond); font-weight: 700; font-size: 1.625rem; line-heigh
 
 /* Platforms (how-to) */
 .platforms { border-top: 2px solid var(--ink); }
-.platform { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 1rem 2.5rem; padding: 2rem 0; border-bottom: 1px solid var(--rule); }
+.platform { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 1rem 2.5rem; padding: 2rem 0; border-bottom: 1px solid var(--rule); transition: background-color 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out); }
+.platform__main h3 { text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 2px; text-underline-offset: 0.3em; transition: text-decoration-color 0.2s var(--ease-out); }
+.platform__icon { transition: color 0.2s var(--ease-out); }
+.platform:hover { background: var(--hall-2); box-shadow: -1rem 0 0 var(--hall-2), 1rem 0 0 var(--hall-2); }
+.platform:hover .platform__main h3 { text-decoration-color: var(--signal); }
+.platform:hover .platform__icon { color: var(--signal); }
 .platform__plate { display: flex; flex-direction: column; align-items: flex-start; gap: 0.9rem; }
 .platform__tag { font-family: var(--cond); font-weight: 600; font-size: 0.9375rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); }
 .platform__no { font-family: var(--cond); font-weight: 800; font-size: 3rem; line-height: 1; }
@@ -299,6 +304,7 @@ h3 { font-family: var(--cond); font-weight: 700; font-size: 1.625rem; line-heigh
   .details > div:nth-child(odd) { padding-right: 0; }
   .member { flex-direction: column; }
   .platform { grid-template-columns: 1fr; padding: 1.5rem 0; gap: 1rem; }
+  .platform:hover { box-shadow: -0.75rem 0 0 var(--hall-2), 0.75rem 0 0 var(--hall-2); }
   .platform__plate { flex-direction: row; align-items: center; gap: 1rem; }
   .platform__no { font-size: 2.25rem; }
   .platform__main h3 { font-size: 1.5rem; }
