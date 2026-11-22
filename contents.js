@@ -30,40 +30,27 @@ window.pageContent = {
       "title": "Buy ADA from your favorite exchange",
       "contents": `If you want some discounts use my referral link for:
 
-* [Binance.com (10%/10%)](https://www.binance.com/it/register?ref=RB0J7K7X)
 * [Crypto.com (50$ bonus)](https://crypto.com/app/n3xdtue6we)
 * [Coinbase.com (10$ BTC bonus)](https://www.coinbase.com/join/france_zc)
+* [KuCoin.com](https://www.kucoin.com/ucenter/signup?rcode=1s6g2eR)
 
 Or without referral link you can buy ADA with:
 
-* [Binance.com](https://www.binance.com/en)
 * [Crypto.com](https://crypto.com/exchange)
 * [Kraken.com](https://www.kraken.com)
-* [KuCoin.com](https://www.kucoin.com/ucenter/signup?rcode=1s6g2eR)
+* [KuCoin.com](https://www.kucoin.com)
 * [Bitfinex.com](https://www.bitfinex.com)
 * ...and [more](https://coinranking.com/coin/qzawljRxB5bYu+cardano-ada/exchanges)`
     },
     {
       "number": 2,
       "title": "Send your ADA to your wallet",
-      "contents": `Download [Daedalus Wallet](https://daedaluswallet.io/en/) and install last version (7.1.0):
+      "contents": `Choose a Cardano wallet that supports staking. Light wallets are the quickest way to start:
 
-* [macOS 64 bit](https://update-cardano-mainnet.iohk.io/daedalus-7.1.0-72909-mainnet-5472147d9-x86_64-darwin.pkg?t=1742410568668)
-* [Windows 8.1 and 10, 64 bit](https://update-cardano-mainnet.iohk.io/daedalus-7.1.0-72909-mainnet-5472147d9-x86_64-windows.exe?t=1742410568680)
-* [Linux 64 bit](https://update-cardano-mainnet.iohk.io/daedalus-7.1.0-72909-mainnet-5472147d9-x86_64-linux.bin?t=1742410568678)
+* [Lace](https://www.lace.io), browser extension by [IOG](https://www.iog.io)
+* [Eternl](https://eternl.io), browser extension
 
-It could take 1 to 24 hrs.
-
-by [IOHK](https://iohk.io)
-
-Download [Yoroi](https://yoroi-wallet.com/#/) (available for mobile):
-
-* [Extension Chrome Browser](https://chrome.google.com/webstore/detail/yoroi/ffnbelfdoeiohenkjibnmadjiehjhajb)
-* [Add-On for Firefox](https://addons.mozilla.org/en-US/firefox/addon/yoroi/)
-* [Extension Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/yoroi/akoiaibnepcedcplijmiamnaigbepmcb)
-* [iOS](https://apps.apple.com/us/app/emurgos-yoroi-cardano-wallet/id1447326389) / [Android](https://play.google.com/store/apps/details?id=com.emurgo&hl=en) The Cardano Wallet
-
-by [EMURGO](https://emurgo.io)`
+Or the full-node desktop wallet [Daedalus](https://daedaluswallet.io/en/), also by IOG: download the latest version from the [official releases page](https://github.com/input-output-hk/daedalus/releases). Its first sync can take 1 to 24 hours.`
     },
     {
       "number": 3,
@@ -74,7 +61,7 @@ Important: your ADA are always available for you to send, spend or move.
 
 Please check out our community resources for last breaking news:
 
-* [Twitter Cardano Community](https://twitter.com/Cardano)
+* [X Cardano Community](https://x.com/Cardano)
 * [Reddit The Home of Cardano](https://www.reddit.com/r/cardano/)
 * [YouTube Your Cardano Update](https://www.youtube.com/c/YourCardanoUpdate/featured)
 * [YouTube The Cardano Effect](https://www.youtube.com/channel/UCdsCDVHKVIuTlziDW7Wg3NQ)
@@ -163,7 +150,7 @@ Let's make it right, delegate to [SIGN].`
     },
     {
       "question": "How do I delegate to SIGN?",
-      "answer": "Open any Cardano wallet that supports delegation (for example Yoroi, Daedalus, Lace or Eternl), search for the ticker **SIGN** in the staking or delegation tab and confirm the delegation. The steps above explain the whole process."
+      "answer": "Open any Cardano wallet that supports delegation (for example Daedalus, Lace or Eternl), search for the ticker **SIGN** in the staking or delegation tab and confirm the delegation. The steps above explain the whole process."
     },
     {
       "question": "Is there a minimum amount or a cost to delegate?",
