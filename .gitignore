@@ -72,3 +72,8 @@ logs
 # Temporary files
 tmp/
 temp/
+
+# Local working files, never published (this repo is public and served by GitHub Pages)
+_privato/
+.claude/
+.impeccable/

@@ -15,6 +15,7 @@ _Last updated: 2026-11-22._
 - After publishing, verify on the live site (GitHub Pages takes ~30 s to 2 min; `cache-control: max-age=600`).
 - Files are never deleted: move them to `~/Desktop/riccardoscut/_da_cancellare/` and let Riccardo empty it.
 - Talk to Riccardo in Italian, plain language; code, comments and commits in English.
+- Private material never goes in this repo: it lives outside, in the local `privato/` folder next to the repos. Inside the repo only `_privato/` (git-ignored, with `.claude/` and `.impeccable/`). Check `git status` before every commit.
 
 ## Conventions
 - Content changes: edit `contents.js`, then `node tools/build-index.js` to refresh the static copy in `index.html` (it only touches the `<!-- build:NAME -->` regions and bumps the `?v=` stamp of contents.js/script.js). When `board.css` changes, bump `board.css?v=N` in `index.html` by hand.
