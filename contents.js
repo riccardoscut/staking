@@ -102,6 +102,16 @@ Let's make it right, delegate to [SIGN].`
         "Data Scientist | AI Modeler | Cognitive Psychologist | Reflexologist"
       ],
       "location": "Barcelona-based"
+    },
+    {
+      "image": "/claudio.png",
+      "name": "Claudio",
+      "details": [
+        "AI Systems & Digital Innovation",
+        "Software Developer | Data & AI Specialist",
+        "LLM Research | AI Infrastructure"
+      ],
+      "location": "Rome-based"
     }
   ]
 };

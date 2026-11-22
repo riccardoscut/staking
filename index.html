@@ -141,7 +141,14 @@
             0 0 90px rgba(0, 240, 255, 0.4) !important;
           animation: neon-flicker 4s ease-in-out infinite alternate !important;
         }
-      </style>
+      
+      /* Team: spazio tra le schede dei membri (stessa larghezza piena) */
+      #team .grid-crypto {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+    </style>
     
 
 
@@ -1333,8 +1340,20 @@
                         <div class="text-center md:text-left">
                             <h3 class="text-2xl font-bold text-accent-cyan mb-4">Riccardo</h3>
                             <p class="text-text-secondary mb-2">Linux server Administrator</p>
-                            <p class="text-text-secondary mb-2">Language Data Analyst | Psychotherapist | Natural Language AI Master | Peer Reviewer</p>
+                            <p class="text-text-secondary mb-2">Data Scientist | AI Modeler | Cognitive Psychologist | Reflexologist</p>
                             <p class="text-accent-lime font-semibold">Barcelona-based</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member card-accent neon-border">
+                    <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+                        <img src="/claudio.png" alt="Claudio - AI Systems &amp; Digital Innovation" class="team-photo w-32 h-32 rounded-2xl object-cover border-2 border-accent-cyan/30 shadow-neon">
+                        <div class="text-center md:text-left">
+                            <h3 class="text-2xl font-bold text-accent-cyan mb-4">Claudio</h3>
+                            <p class="text-text-secondary mb-2">AI Systems &amp; Digital Innovation</p>
+                            <p class="text-text-secondary mb-2">Software Developer | Data &amp; AI Specialist</p>
+                            <p class="text-text-secondary mb-2">LLM Research | AI Infrastructure</p>
+                            <p class="text-accent-lime font-semibold">Rome-based</p>
                         </div>
                     </div>
                 </div>
@@ -1429,8 +1448,8 @@
                 "@type": "Person",
                 "name": "Riccardo",
                 "jobTitle": "Linux server Administrator",
-                "description": "Language Data Analyst, Psychotherapist, Natural Language AI Master, Peer Reviewer",
-                "image": "https://staking.da-sign.com/riccardo.jpg"
+                "description": "Data Scientist | AI Modeler | Cognitive Psychologist | Reflexologist",
+                "image": "https://staking.da-sign.com/riccardo.png"
             }
         ],
         "sameAs": [
