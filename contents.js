@@ -83,7 +83,7 @@ Please check out our community resources for last breaking news:
     },
     {
       "number": 4,
-      "title": "Enjoy your rewards while doing simply n...",
+      "title": "Enjoy your rewards while doing simply nothing",
       "contents": `Thanks to [Cardano](https://cardano.org) and the [PoS protocol Ouroboros](https://cardano.org/ouroboros/), every time a delegated stakepool creates a new block, you as an Ada holder get rewards that represents the fee effort.
 
 Check the [calculator rewards](https://cardano.org/calculator/?calculator=delegator), go, get through the [GitHub Source Code](https://github.com/input-output-hk)!
