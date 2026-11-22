@@ -184,6 +184,10 @@
       .faq-question:hover { color: #00F0FF; }
       .faq-question:focus-visible { outline: 2px solid #00F0FF; outline-offset: 4px; border-radius: 4px; }
 
+      /* Cards: padding/radius in plain CSS (the @apply rules in components.css are never processed with Tailwind from CDN) */
+      .card-accent { border-radius: 1rem; padding: 1.5rem; }
+      @media (min-width: 768px) { .card-accent { padding: 2rem; } }
+
       /* Pool at a glance: plain CSS, no glow (Tailwind CDN does not process @apply) */
       .pool-glance { max-width: 56rem; margin: 2.5rem auto 0; text-align: left; background: rgba(11, 15, 20, 0.72); border: 1px solid rgba(0, 240, 255, 0.22); border-radius: 1rem; padding: 1.75rem; box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35); }
       .pool-glance__title { font-size: 1rem; font-weight: 600; color: #E6F1FF; margin: 0 0 1.25rem; }

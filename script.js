@@ -28,8 +28,8 @@ document.addEventListener("DOMContentLoaded", function () {
       .join("");
   }
 
-  // Update benefits
-  const benefitsContainer = document.querySelector(".grid-crypto");
+  // Update benefits (only into a dedicated #benefits section; ".grid-crypto" alone is the team grid)
+  const benefitsContainer = document.querySelector("#benefits .grid-crypto");
   if (benefitsContainer && window.pageContent.benefits) {
     benefitsContainer.innerHTML = window.pageContent.benefits
       .map(benefit => `
@@ -210,10 +210,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }, observerOptions);
 
+  // Cards are visible by default; the fade-in is only an enhancement,
+  // enabled when JS runs and the visitor has not asked for reduced motion.
+  const allowMotion = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (allowMotion) document.documentElement.classList.add('js-anim');
+
   // Observe all cards and sections for animation
-  document.querySelectorAll('.card, .card-accent, section').forEach(el => {
-    observer.observe(el);
-  });
+  if (allowMotion) {
+    document.querySelectorAll('.card, .card-accent, section').forEach(el => {
+      observer.observe(el);
+    });
+  }
 
   // Add hover effects for interactive elements
   document.querySelectorAll('.card, .card-accent').forEach(card => {
@@ -279,7 +286,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
       
-      .card, .card-accent {
+      .js-anim .card:not(.animate-fade-in), .js-anim .card-accent:not(.animate-fade-in) {
         opacity: 0;
         transform: translateY(30px);
       }
