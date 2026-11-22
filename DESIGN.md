@@ -299,3 +299,16 @@ The reusable core of the identity, shared with the game's reels.
 - **Don't** add a second accent color or use yellow for headings, backgrounds or decoration.
 - **Don't** set paragraphs in condensed uppercase.
 - **Don't** use filled, glyph or emoji icons for interface pictograms.
+
+## Light theme and theme switch (added 2026-11-22)
+
+The light theme inverts the whole board (`:root[data-theme="light"]` in board.css): hall #EDEDEA, hall-raised #E4E4E0, board #F8F8F6, flap #E1E1DD / flap-upper #EBEBE7, hinge #C4C4BF, rule #D3D3CE, ink #141414 / #3A3C40 / #5C6066. The same vivid yellow **#FFC20E** is used in both themes. On the board the yellow stays as letters (IN SERVICE tiles, EPOCH n) and on the logo apostrophe, an owner decision (2026-11-22) accepting low contrast on light tiles (about 1.5:1); the fallback, if legibility becomes a problem, is a hairline dark outline on those letters. Controls in light use yellow as a fill or underline with dark ink: closed padlock and hovered buttons get a yellow fill, link hover is a thick yellow underline under dark text, and the focus ring turns ink.
+
+Board refresh: on load and on every logo click the board updates like a real departure board: all tiles start together (jitter up to 0.15 s) and each runs fully on its own, 5-28 turns at 58-76 ms per turn, so they settle one here, one there across the whole board and the last tile to stop can be any letter in any cell (about 2 s in all). Switching: clicking the logo takes the visitor to the top of the page, refreshes the board and, unless the padlock beside it is closed, spins the `[./']` mark like a vortex (0.75s, rotate 720deg with a 0.55 scale dip; colours swap at the midpoint over 0.45s) and toggles dark/light. The padlock (stroked pictogram, open/closed shackle, `aria-pressed`) locks the theme so the logo only goes home. Choice and lock persist in localStorage (`sign-theme`, `sign-theme-lock`); first visit is dark. `?theme=light` forces the light theme without saving it. Reduced motion: no spin, instant switch. The theme is applied by an inline script in `<head>` before first paint.
+
+
+Top bar: sticky at the top on every page width, solid hall background (no blur), it compacts after 48 px of scroll (back under 8 px): height 4.5rem to 2.5rem, logo 1.75rem to 1.1rem, nav 1.125rem to 0.875rem (0.8125rem on phones), padlock 2.25rem to 1.75rem, plus a soft shadow; sections keep scroll-margin-top so anchored headings are not hidden.
+
+Team cards: on hover the card border, the name and the location turn signal yellow. Updates rows and each Pool details cell (ticker, network, testnet, mainnet, pool IDs, links) light up yellow one at a time on hover. Footer logo: same mark as the header (yellow apostrophe), a link back to the top of the page (no theme switch).
+
+Meaningful yellow touches (owner request, 2026-11-22): "sign" set lowercase in yellow inside the h1 (signATURE STAKING), every letter A of each section heading (How to delegAte, UpdAtes, Pool detAils, SignAture teAm, FAQ) plus the "4" of the steps heading, the step numbers on the platform plates, the [SIGN] ticker in Pool details, and the FAQ icon of an open answer. Add new ones only where the yellow means something (status, the brand's SIGN, the next/newest item, the active state); never as a decorative stripe or fill.

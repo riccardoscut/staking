@@ -120,6 +120,87 @@ document.addEventListener("DOMContentLoaded", function () {
     epochEl.textContent = 208 + Math.floor((Date.now() - start) / 432e6);
   }
 
+  // Colour theme: clicking the logo takes you home (top of the page) and, unless the
+  // padlock is closed, spins the mark like a vortex and switches dark / light.
+  const root = document.documentElement;
+  const store = {
+    get: k => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} }
+  };
+  const themeColor = document.querySelector('meta[name="theme-color"]');
+  const paintThemeColor = () => { if (themeColor) themeColor.content = root.dataset.theme === "light" ? "#EDEDEA" : "#1C1D1F"; };
+  paintThemeColor();
+  const lock = document.querySelector(".theme-lock");
+  const brand = document.querySelector(".topbar .brand");
+  const brandMark = brand && brand.querySelector(".brand__mark");
+  const isLocked = () => store.get("sign-theme-lock") === "1";
+  const paintLock = () => {
+    if (!lock) return;
+    const locked = isLocked();
+    lock.setAttribute("aria-pressed", String(locked));
+    lock.title = locked ? "Theme locked: click to let the logo switch light / dark again" : "Lock the theme: the logo will only take you home";
+    if (brand) {
+      brand.title = locked ? "Home" : "Home · also switches light / dark";
+      brand.setAttribute("aria-label", locked ? "Signature Staking, home" : "Signature Staking, home (also switches light and dark theme)");
+    }
+  };
+  if (lock) {
+    lock.hidden = false;
+    paintLock();
+    lock.addEventListener("click", () => { store.set("sign-theme-lock", isLocked() ? "0" : "1"); paintLock(); });
+  }
+  function switchTheme () {
+    const next = root.dataset.theme === "light" ? "dark" : "light";
+    root.classList.add("theme-switching");
+    root.dataset.theme = next;
+    store.set("sign-theme", next);
+    paintThemeColor();
+    setTimeout(() => root.classList.remove("theme-switching"), 500);
+  }
+  if (brand) {
+    brand.addEventListener("click", e => {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return; // new tab etc.
+      if (location.pathname !== "/" && location.pathname !== "/index.html") return; // real navigation
+      e.preventDefault();
+      if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+      window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+      refreshBoard();
+      if (isLocked()) return;
+      if (reduceMotion || !brandMark) { switchTheme(); return; }
+      brandMark.classList.remove("is-spinning"); void brandMark.offsetWidth;
+      brandMark.classList.add("is-spinning");
+      setTimeout(switchTheme, 320); // swap colours at the eye of the vortex
+      brandMark.addEventListener("animationend", () => brandMark.classList.remove("is-spinning"), { once: true });
+    });
+  }
+
+  // Footer logo: back to the top of the page
+  const footerLogo = document.querySelector(".footer__logo");
+  if (footerLogo) {
+    footerLogo.addEventListener("click", e => {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+      if (location.pathname !== "/" && location.pathname !== "/index.html") return;
+      e.preventDefault();
+      if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+      window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    });
+  }
+
+  // Top bar stays pinned and shrinks a little once the page scrolls
+  // (two thresholds so it does not flicker while its own height changes)
+  const topbar = document.querySelector(".topbar");
+  if (topbar) {
+    let ticking = false;
+    const update = () => {
+      const y = window.scrollY;
+      if (y > 48) topbar.classList.add("is-compact");
+      else if (y < 8) topbar.classList.remove("is-compact");
+      ticking = false;
+    };
+    window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    update();
+  }
+
   // Copy pool ID buttons (stay hidden without JS or clipboard access)
   document.querySelectorAll("[data-copy-target]").forEach(button => {
     const target = document.getElementById(button.dataset.copyTarget);
@@ -172,26 +253,44 @@ document.addEventListener("DOMContentLoaded", function () {
     el.classList.add("is-split");
     return tiles;
   }
-  function flip (tile, delay) {
+  // A board refresh: every word stops at its own random moment, every tile turns a
+  // random number of times, like a real departure board updating (about 1.5-2 s).
+  let boardGeneration = 0;
+  function flip (tile, delay, steps, gen) {
     const final = tile.dataset.final;
-    const steps = 3 + Math.floor(Math.random() * 4);
     let n = 0;
     setTimeout(function tick () {
+      if (tile.dataset.gen !== String(gen)) return; // a newer refresh took over
       if (n < steps) {
         tile.textContent = GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
         tile.classList.remove("is-turning"); void tile.offsetWidth; tile.classList.add("is-turning");
         n++;
-        setTimeout(tick, 55);
+        setTimeout(tick, 58 + Math.random() * 18);
       } else {
         tile.textContent = final;
         tile.classList.remove("is-turning");
       }
     }, delay);
   }
-  const boardTiles = [];
-  document.querySelectorAll("#board [data-flap]").forEach(el => boardTiles.push(...splitFlaps(el)));
+  // Board cells (ticker, status, dates, margin, cost): on every refresh each tile
+  // settles at its own random moment, in no particular order.
+  const boardCells = [];
+  document.querySelectorAll("#board [data-flap]").forEach(el => {
+    splitFlaps(el);
+    boardCells.push([...el.querySelectorAll(".flap")]);
+  });
   document.querySelectorAll(".platform__no[data-flap]").forEach(splitFlaps);
+  function refreshBoard () {
+    if (reduceMotion || !boardCells.length) return;
+    const gen = ++boardGeneration;
+    // every tile on the board runs on its own: they all start together and each one
+    // stops after its own random number of turns, so the last tile can be any letter
+    boardCells.flat().forEach(tile => {
+      tile.dataset.gen = String(gen);
+      flip(tile, Math.random() * 150, 5 + Math.floor(Math.random() * 24), gen);
+    });
+  }
   // ?still shows the board already settled (screenshots, previews)
   const still = new URLSearchParams(location.search).has("still");
-  if (!reduceMotion && !still) boardTiles.forEach((t, i) => flip(t, 120 + i * 28));
+  if (!still) refreshBoard();
 });

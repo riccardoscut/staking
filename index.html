@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,14 +26,23 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <link rel="stylesheet" href="/board.css?v=1">
+    <script>
+      /* apply the saved colour theme before the first paint (no flash) */
+      try { var q = new URLSearchParams(location.search).get("theme"); document.documentElement.dataset.theme = (q || localStorage.getItem("sign-theme")) === "light" ? "light" : "dark"; } catch (e) {}
+    </script>
+    <link rel="stylesheet" href="/board.css?v=2">
 </head>
 <body>
     <a class="skip" href="#main">Skip to content</a>
 
     <header class="topbar">
         <div class="wrap">
-            <a class="brand" href="/" aria-label="Signature Staking, home"><span class="brand__mark" aria-hidden="true">[./<span class="brand__tick">'</span>]</span><span>SIGN</span></a>
+            <div class="brand-group">
+                <a class="brand" href="/" aria-label="Signature Staking, home (also switches light and dark theme)" title="Home · also switches light / dark"><span class="brand__mark" aria-hidden="true">[./<span class="brand__tick">'</span>]</span><span>SIGN</span></a>
+                <button type="button" class="theme-lock" aria-pressed="false" aria-label="Lock the colour theme" title="Lock the theme: the logo will only take you home" hidden>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path class="theme-lock__open" d="M8 11V8a4 4 0 0 1 7.6-1.7"/><path class="theme-lock__closed" d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+                </button>
+            </div>
             <nav class="nav" aria-label="Sections">
                 <a href="#how-to">Delegate</a>
                 <a href="#updates">Updates</a>
@@ -72,7 +81,7 @@
                 </div>
 
                 <div class="intro">
-                    <h1 id="page-title">Signature<br>Staking</h1>
+                    <h1 id="page-title"><span class="hl hl--lower">sign</span>ature<br>Staking</h1>
                     <div>
                         <div class="intro__text intro-text">
                             <p>Welcome to Signature Staking, one of the 1st node validators on the Cardano blockchain.</p>
@@ -93,7 +102,7 @@
         <section id="how-to" class="section" aria-labelledby="how-to-title">
             <div class="wrap">
                 <div class="section__head">
-                    <h2 id="how-to-title">How to delegate in 4 steps</h2>
+                    <h2 id="how-to-title">How to deleg<span class="hl">a</span>te in <span class="hl">4</span> steps</h2>
                     <p class="section__lede">From buying ADA to your first rewards. Delegation happens in your own wallet.</p>
                 </div>
                 <div class="platforms" id="howto-list">
@@ -120,7 +129,7 @@
         <section id="updates" class="section" aria-labelledby="updates-title">
             <div class="wrap">
                 <div class="section__head">
-                    <h2 id="updates-title">Updates</h2>
+                    <h2 id="updates-title">Upd<span class="hl">a</span>tes</h2>
                     <p class="section__lede">Proof of life for the [SIGN] pool: KES key rotations, node software and hardware updates, newest first.</p>
                 </div>
                 <div class="departures">
@@ -167,10 +176,10 @@
         <section id="pool-details" class="section" aria-labelledby="details-title">
             <div class="wrap">
                 <div class="section__head">
-                    <h2 id="details-title">Pool details</h2>
+                    <h2 id="details-title">Pool det<span class="hl">a</span>ils</h2>
                 </div>
                 <dl class="details">
-                    <div><dt>Ticker</dt><dd>[SIGN]</dd></div>
+                    <div><dt>Ticker</dt><dd class="hl">[SIGN]</dd></div>
                     <div><dt>Network</dt><dd>Cardano Mainnet</dd></div>
                     <div><dt>Incentivized Testnet</dt><dd>Since 16 January 2020 (ITN epoch 813)</dd></div>
                     <div><dt>Mainnet</dt><dd>Since 30 July 2020</dd></div>
@@ -185,7 +194,7 @@
         <section id="team" class="section" aria-labelledby="team-title">
             <div class="wrap">
                 <div class="section__head">
-                    <h2 id="team-title">Signature admin</h2>
+                    <h2 id="team-title">Sign<span class="hl">a</span>ture te<span class="hl">a</span>m</h2>
                     <p class="section__lede">The people who run the nodes and rotate the keys.</p>
                 </div>
                 <div class="team" id="team-list">
@@ -215,7 +224,7 @@
         <section id="faq" class="section" aria-labelledby="faq-title">
             <div class="wrap">
                 <div class="section__head">
-                    <h2 id="faq-title">FAQ</h2>
+                    <h2 id="faq-title">F<span class="hl">A</span>Q</h2>
                 </div>
                 <div id="faq-list" class="faq-list">
                     <details class="faq-item">
@@ -265,7 +274,7 @@
 
     <footer class="footer">
         <div class="wrap">
-            <p class="footer__brand">[./<span class="brand__tick">'</span>] SIGN<span>Signature Staking</span></p>
+            <p class="footer__brand"><a class="brand footer__logo" href="/" aria-label="Signature Staking, back to top"><span class="brand__mark" aria-hidden="true">[./<span class="brand__tick">'</span>]</span><span>SIGN</span></a><span class="footer__tagline">Signature Staking</span></p>
             <p class="footer__mail">email: <a href="mailto:cardanostaking@da-sign.com">cardanostaking@da-sign.com</a></p>
             <div class="social">
                 <a href="https://github.com/signaturestaking/" aria-label="GitHub" rel="nofollow noopener noreferrer" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.237 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></a>
@@ -313,7 +322,7 @@
 
     <script src="/snarkdown-2.0.0.min.js"></script>
     <script src="/contents.js?v=20261122"></script>
-    <script src="/script.js?v=20261122"></script>
+    <script src="/script.js?v=20261122b"></script>
     <script data-goatcounter="https://staking.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
