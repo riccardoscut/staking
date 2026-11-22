@@ -316,3 +316,5 @@ Meaningful yellow touches (owner request, 2026-11-22): "SIGN" in yellow inside t
 Guide steps: on hover a step row gets a raised-hall background, its heading a 2px yellow underline (as the nav tabs) and its pictogram turns yellow.
 
 Board tiles as a toy (owner request): hovering a tile only lights a faint yellow halo (inner 1px at 50% plus a soft 12px halo at 28%, in 0.08 s) that fades out over 0.9 s, so sweeping the pointer leaves a stadium wave; letters never change on hover. Clicking a tile spins only that tile at a random speed: fast (6-9 turns, 40-52 ms), medium (9-13, 70-90 ms) or slow (12-17, 110-150 ms), then it settles back on its own character. Reduced motion: tiles only light up.
+
+FAQ questions turn yellow on hover in both themes.

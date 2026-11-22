@@ -52,7 +52,6 @@
 :root[data-theme="light"] .flaps a:hover .flap { color: var(--ink); box-shadow: inset 0 -3px 0 var(--signal-fill); }
 :root[data-theme="light"] .theme-lock[aria-pressed="true"] { background: var(--signal-fill); color: var(--signal-ink); }
 :root[data-theme="light"] .btn--line:hover { border-color: var(--ink); color: var(--ink); background: var(--signal-fill); }
-:root[data-theme="light"] .faq-question:hover, :root[data-theme="light"] .faq-question:hover svg { color: var(--ink-2); }
 :root[data-theme="light"] .social a:hover { color: var(--signal-ink); background: var(--signal-fill); border-color: var(--signal-fill); }
 .theme-switching *, .theme-switching *::before, .theme-switching *::after { transition: background-color 0.45s var(--ease-out), color 0.45s var(--ease-out), border-color 0.45s var(--ease-out), fill 0.45s var(--ease-out) !important; }
 
@@ -125,7 +124,7 @@ section[id], #main { scroll-margin-top: 3.75rem; }
 .details > div:hover dt, .details > div:hover dd, .details > div:hover dd a { color: var(--signal); }
 .details > div:hover dd a { text-decoration-color: var(--signal); }
 .platform__no .flap { color: var(--signal); }
-.faq-item[open] .faq-question svg { color: var(--signal) !important; } /* the one decorative yellow: the logo's apostrophe */
+.faq-item[open] .faq-question svg { color: var(--signal) !important; }
 .nav { display: flex; gap: 1.75rem; font-family: var(--cond); font-weight: 600; font-size: 1.125rem; letter-spacing: 0.04em; text-transform: uppercase; }
 .nav a { color: var(--ink-2); text-decoration: none; padding: 0.25rem 0; border-bottom: 2px solid transparent; transition: color 0.2s var(--ease-out), border-color 0.2s var(--ease-out); }
 .nav a:hover { color: var(--ink); border-bottom-color: var(--signal); }
