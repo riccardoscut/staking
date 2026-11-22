@@ -256,19 +256,21 @@ document.addEventListener("DOMContentLoaded", function () {
   // A board refresh: every word stops at its own random moment, every tile turns a
   // random number of times, like a real departure board updating (about 1.5-2 s).
   let boardGeneration = 0;
-  function flip (tile, delay, steps, gen) {
+  function flip (tile, delay, steps, gen, minMs = 58, spreadMs = 18) {
     const final = tile.dataset.final;
     let n = 0;
+    tile.dataset.busy = "1";
     setTimeout(function tick () {
-      if (tile.dataset.gen !== String(gen)) return; // a newer refresh took over
+      if (tile.dataset.gen !== String(gen)) return; // a newer spin took over
       if (n < steps) {
         tile.textContent = GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
         tile.classList.remove("is-turning"); void tile.offsetWidth; tile.classList.add("is-turning");
         n++;
-        setTimeout(tick, 58 + Math.random() * 18);
+        setTimeout(tick, minMs + Math.random() * spreadMs);
       } else {
         tile.textContent = final;
         tile.classList.remove("is-turning");
+        delete tile.dataset.busy;
       }
     }, delay);
   }
@@ -290,6 +292,32 @@ document.addEventListener("DOMContentLoaded", function () {
       flip(tile, Math.random() * 150, 5 + Math.floor(Math.random() * 24), gen);
     });
   }
+  // Single tiles: hovering only lights a faint halo that fades out slowly (sweeping the
+  // pointer leaves a stadium "wave", in CSS); clicking spins just that tile at a random
+  // speed (fast, medium or slow) before it settles back on its own letter.
+  const SPEEDS = [
+    { turns: [6, 9], min: 40, spread: 12 },    // fast
+    { turns: [9, 13], min: 70, spread: 20 },   // medium
+    { turns: [12, 17], min: 110, spread: 40 }  // slow
+  ];
+  let tileGeneration = 0;
+  const spinTile = (tile, turns, min, spread) => {
+    const gen = "t" + (++tileGeneration);
+    tile.dataset.gen = gen;
+    flip(tile, 0, turns, gen, min, spread);
+  };
+  boardCells.flat().forEach(tile => {
+    tile.classList.add("flap--toy");
+    if (reduceMotion) return;
+    tile.addEventListener("click", e => {
+      e.preventDefault(); // the latest-update tiles sit inside a link
+      e.stopPropagation();
+      const speed = SPEEDS[Math.floor(Math.random() * SPEEDS.length)];
+      const turns = speed.turns[0] + Math.floor(Math.random() * (speed.turns[1] - speed.turns[0] + 1));
+      spinTile(tile, turns, speed.min, speed.spread);
+    });
+  });
+
   // ?still shows the board already settled (screenshots, previews)
   const still = new URLSearchParams(location.search).has("still");
   if (!still) refreshBoard();
