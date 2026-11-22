@@ -93,6 +93,67 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Render updates (sorted newest first, older ones behind a toggle)
+  const updatesList = document.getElementById("updates-list");
+  if (updatesList && Array.isArray(window.pageContent.updates)) {
+    const VISIBLE_UPDATES = 6;
+    const formatDate = d => new Date(d + "T00:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
+    const updates = [...window.pageContent.updates].sort((a, b) => b.date.localeCompare(a.date));
+    updatesList.innerHTML = updates
+      .map((u, i) => `
+                <li class="update-item"${i >= VISIBLE_UPDATES ? " hidden" : ""}>
+                    <div class="update-meta">
+                        <time datetime="${u.date}">${formatDate(u.date)}</time>
+                        <span class="update-badge update-badge--${u.type.toLowerCase()}">${u.type}</span>
+                    </div>
+                    <div>
+                        <h3 class="update-title">${u.title}</h3>
+                        <div class="update-text">${markdownToHtml(u.text)}</div>
+                    </div>
+                </li>
+            `).join("");
+
+    const toggle = document.getElementById("updates-toggle");
+    if (toggle && updates.length > VISIBLE_UPDATES) {
+      const showAllLabel = `Show full history (${updates.length})`;
+      toggle.textContent = showAllLabel;
+      toggle.hidden = false;
+      toggle.addEventListener("click", function () {
+        const expanded = this.getAttribute("aria-expanded") === "true";
+        updatesList.querySelectorAll(".update-item").forEach((item, i) => {
+          if (i >= VISIBLE_UPDATES) item.hidden = expanded;
+        });
+        this.setAttribute("aria-expanded", String(!expanded));
+        this.textContent = expanded ? showAllLabel : "Show latest only";
+      });
+    }
+  }
+
+  // Render FAQ accordion and its schema.org FAQPage data
+  const faqList = document.getElementById("faq-list");
+  if (faqList && Array.isArray(window.pageContent.faq)) {
+    faqList.innerHTML = window.pageContent.faq
+      .map(f => `
+                <details class="faq-item">
+                    <summary class="faq-question">${f.question}</summary>
+                    <div class="faq-answer">${markdownToHtml(f.answer)}</div>
+                </details>
+            `).join("");
+
+    const faqSchema = document.createElement("script");
+    faqSchema.type = "application/ld+json";
+    faqSchema.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": window.pageContent.faq.map(f => ({
+        "@type": "Question",
+        "name": f.question,
+        "acceptedAnswer": { "@type": "Answer", "text": window.snarkdown(f.answer) }
+      }))
+    });
+    document.head.appendChild(faqSchema);
+  }
+
   // Add smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {

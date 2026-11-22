@@ -148,6 +148,42 @@
         flex-direction: column;
         gap: 1.5rem;
       }
+    
+      /* Updates timeline */
+      .updates-list { list-style: none; margin: 0; padding: 0; text-align: left; }
+      .update-item { display: grid; grid-template-columns: 9.5rem 1fr; gap: 1.25rem; padding: 1.25rem 0; border-bottom: 1px solid rgba(0, 240, 255, 0.12); }
+      .update-item:first-child { padding-top: 0.25rem; }
+      .update-item:last-child { border-bottom: none; }
+      .update-item[hidden], .updates-toggle[hidden] { display: none; }
+      .update-meta { display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+      .update-meta time { color: #E6F1FF; font-weight: 600; font-size: 0.95rem; }
+      .update-badge { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.15rem 0.6rem; border: 1px solid currentColor; border-radius: 9999px; }
+      .update-badge--kes { color: #00F0FF; }
+      .update-badge--software { color: #B8FF00; }
+      .update-badge--hardware { color: #FF3AF2; }
+      .update-badge--pool { color: #FFD166; }
+      .update-badge--team { color: #19F579; }
+      .update-title { color: #00F0FF; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.35rem; }
+      .update-text { color: #A6B3C2; line-height: 1.6; }
+      .updates-toggle { margin-top: 1.5rem; padding: 0.6rem 1.4rem; border: 1px solid #00F0FF; border-radius: 9999px; background: transparent; color: #00F0FF; font-weight: 600; cursor: pointer; transition: all 0.2s ease; }
+      .updates-toggle:hover { background: rgba(0, 240, 255, 0.12); border-color: #B8FF00; color: #B8FF00; }
+      .updates-toggle:focus-visible { outline: 2px solid #B8FF00; outline-offset: 3px; }
+      @media (max-width: 640px) {
+        .update-item { grid-template-columns: 1fr; gap: 0.6rem; }
+        .update-meta { flex-direction: row; align-items: center; }
+      }
+
+      /* FAQ accordion */
+      .faq-list { text-align: left; }
+      .faq-item { border-bottom: 1px solid rgba(0, 240, 255, 0.12); }
+      .faq-item:last-child { border-bottom: none; }
+      .faq-question { position: relative; list-style: none; cursor: pointer; padding: 1.1rem 2.25rem 1.1rem 0; color: #E6F1FF; font-weight: 600; font-size: 1.1rem; transition: color 0.2s ease; }
+      .faq-question::-webkit-details-marker { display: none; }
+      .faq-question::after { content: "+"; position: absolute; right: 0.25rem; top: 50%; transform: translateY(-50%); color: #00F0FF; font-size: 1.5rem; line-height: 1; }
+      .faq-item[open] > .faq-question::after { content: "\2212"; }
+      .faq-question:hover { color: #00F0FF; }
+      .faq-question:focus-visible { outline: 2px solid #00F0FF; outline-offset: 4px; border-radius: 4px; }
+      .faq-answer { color: #A6B3C2; line-height: 1.7; padding: 0 0 1.25rem; }
     </style>
     
 
@@ -1395,6 +1431,38 @@
                         https://explorer.cardano.org/en
                     </a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Updates Section: entries live in contents.js ("updates") -->
+    <section id="updates" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-6 text-gradient">
+                UPDATES
+            </h2>
+            <p class="text-center text-text-secondary mb-12 max-w-2xl mx-auto">
+                Proof of life for the SIGN pool: KES key rotations, node software updates and hardware upgrades, newest first.
+            </p>
+
+            <div class="card-accent neon-border max-w-4xl mx-auto p-6 md:p-8">
+                <ol id="updates-list" class="updates-list" aria-label="Pool updates, newest first"></ol>
+                <div class="text-center">
+                    <button id="updates-toggle" class="updates-toggle" type="button" aria-expanded="false" aria-controls="updates-list" hidden>Show full history</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section: questions live in contents.js ("faq") -->
+    <section id="faq" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-gradient">
+                FAQ
+            </h2>
+
+            <div class="card-accent neon-border max-w-4xl mx-auto p-6 md:p-8">
+                <div id="faq-list" class="faq-list"></div>
             </div>
         </div>
     </section>
