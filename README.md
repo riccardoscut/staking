@@ -14,6 +14,7 @@ A single static page, served by GitHub Pages from the `main` branch. No framewor
 | `board.css` | All the styles (dark and light theme). |
 | `DESIGN.md` | The design system: colours, type, the split-flap tile, the yellow rule. Read it before changing the look. |
 | `snarkdown-2.0.0.min.js` | Tiny markdown parser used for the texts in `contents.js`. |
+| `tools/build-index.js` | Refreshes the static copy of the texts in `index.html` from `contents.js` (see below). |
 | `riccardo.png`, `claudio.png` | Team photos (150 × 150). |
 | `favicon*`, `apple-touch-icon.png`, `web-app-manifest-*.png`, `site.webmanifest`, `logo.png` | Icons and logo. |
 | `poolMetaData.json`, `sign-metadata-extended.json`, `sign-logo-small.png` | **On-chain pool metadata**, read by the Cardano blockchain through the pool registration. Do not rename or move them; changing them changes what wallets show for the pool. |
@@ -24,11 +25,19 @@ A single static page, served by GitHub Pages from the `main` branch. No framewor
 Edit `contents.js`; markdown is allowed in the texts (`[text](https://...)`, `**bold**`).
 
 - **Updates**: add one line to `"updates"`, newest anywhere (the page sorts by date). Fields: `date` (`YYYY-MM-DD`), `type` (`KES`, `Software`, `Hardware`, `Pool` or `Team`), `title`, `text`. The "Latest update" date on the board follows automatically.
-- **Team**: every change goes in `contents.js` **and** in the static HTML of `index.html` (and in the schema.org block in `index.html` when names or roles change).
+- **Team**: edit `contents.js`, run the refresh script below, and update the schema.org block in `index.html` by hand when names or roles change.
 - **Never promise returns**: no fixed or guaranteed yields anywhere (texts, meta tags, schema.org).
 - Write the ticker as **[SIGN]**, with brackets.
 
-After changing `contents.js`, the static copy of the texts in `index.html` should be refreshed too, so that search engines read the same content.
+### After every change to `contents.js`: refresh the static copy
+
+Visitors see the new texts at once (the page renders `contents.js`), but search engines and visitors without JavaScript read the static copy inside `index.html`. Refresh it from the `staking` folder:
+
+```sh
+node tools/build-index.js
+```
+
+The script only rewrites what sits between the `<!-- build:NAME -->` and `<!-- /build:NAME -->` markers in `index.html` (intro, steps, latest 6 updates, team, FAQ) and bumps the `?v=` cache stamp of `contents.js` and `script.js`, so browsers load the fresh files. Nothing else in `index.html` is touched; do not remove the markers. It needs only Node.js, no installs. Then preview and publish as usual.
 
 ## Preview and publishing
 
