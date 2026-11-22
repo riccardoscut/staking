@@ -3,7 +3,7 @@ window.pageContent = {
     "Welcome to Signature Staking, one of the 1st node validators on the Cardano blockchain.",
     "Cardano’s native cryptocurrency is called ADA.",
     "If you’re an ADA holder, put your assets to work:",
-    "Delegate to SIGN and enjoy a guaranteed 4% ROI."
+    "Delegate to SIGN and enjoy your rewards."
   ],
   "benefits": [
     {
@@ -83,7 +83,7 @@ Please check out our community resources for last breaking news:
     },
     {
       "number": 4,
-      "title": "Earn 4% yearly while doing simply n...",
+      "title": "Earn rewards while doing simply n...",
       "contents": `Thanks to [Cardano](https://cardano.org) and the [PoS protocol Ouroboros](https://cardano.org/ouroboros/), every time a delegated stakepool creates a new block, you as an Ada holder get rewards that represents the fee effort.
 
 Check the [calculator rewards](https://cardano.org/calculator/?calculator=delegator), go, get through the [GitHub Source Code](https://github.com/input-output-hk)!
