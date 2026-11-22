@@ -199,7 +199,7 @@ A near-monochrome hall of warm-neutral blacks and greys with one signal yellow.
 - **Platform Grey Dim** (#9EA2A8): labels, column heads, metadata, link underlines (6.9:1 on the hall, AA for body text).
 
 ### Named Rules
-**The Signal Rule.** Yellow is for status and the primary action, plus hover, focus and selection feedback. One signal-filled button per view. Never a decorative fill, never on headings, never a background area.
+**The Signal Rule.** Yellow is for status and the primary action, plus hover, focus and selection feedback. One signal-filled button per view. Never a decorative fill, never on headings, never a background area. The single brand exception is the apostrophe of the logo [./'], always signal yellow (`.brand__tick`); no other decorative yellow.
 
 **The Two-Ground Rule.** Data sits on Board Black; prose sits on the Hall. Don't put reading paragraphs on a board panel or board data loose on the hall.
 
