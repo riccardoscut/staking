@@ -183,6 +183,37 @@
       .faq-item[open] > .faq-question::after { content: "\2212"; }
       .faq-question:hover { color: #00F0FF; }
       .faq-question:focus-visible { outline: 2px solid #00F0FF; outline-offset: 4px; border-radius: 4px; }
+
+      /* Pool at a glance: plain CSS, no glow (Tailwind CDN does not process @apply) */
+      .pool-glance { max-width: 56rem; margin: 2.5rem auto 0; text-align: left; background: rgba(11, 15, 20, 0.72); border: 1px solid rgba(0, 240, 255, 0.22); border-radius: 1rem; padding: 1.75rem; box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35); }
+      .pool-glance__title { font-size: 1rem; font-weight: 600; color: #E6F1FF; margin: 0 0 1.25rem; }
+      .pool-glance__id { padding-bottom: 1.25rem; margin-bottom: 1.25rem; border-bottom: 1px solid rgba(0, 240, 255, 0.12); }
+      .pool-glance dt { font-size: 0.875rem; color: #A6B3C2; margin-bottom: 0.3rem; }
+      .pool-glance dd { margin: 0; color: #E6F1FF; font-size: 1.125rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+      .pool-glance dd small { display: block; font-size: 0.875rem; font-weight: 400; color: #A6B3C2; margin-top: 0.15rem; }
+      .pool-glance__id-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
+      .pool-glance__id-value { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.95rem; font-weight: 500; color: #00F0FF; word-break: break-all; min-width: 0; flex: 1 1 18rem; }
+      .pool-glance__copy { flex: none; padding: 0.45rem 1rem; border: 1px solid #00F0FF; border-radius: 9999px; background: transparent; color: #00F0FF; font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: background-color 0.2s ease-out, color 0.2s ease-out, border-color 0.2s ease-out; }
+      .pool-glance__copy:hover { background: rgba(0, 240, 255, 0.12); }
+      .pool-glance__copy:focus-visible { outline: 2px solid #B8FF00; outline-offset: 3px; }
+      .pool-glance__copy[data-state="done"] { border-color: #B8FF00; color: #B8FF00; }
+      .pool-glance__facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 1.25rem 1.5rem; margin: 0; }
+      .pool-glance__facts a, .pool-glance__safe a { color: #00F0FF; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(0, 240, 255, 0.45); }
+      .pool-glance__facts a:hover, .pool-glance__safe a:hover { color: #B8FF00; text-decoration-color: currentColor; }
+      .pool-glance a:focus-visible { outline: 2px solid #B8FF00; outline-offset: 2px; border-radius: 2px; }
+      .pool-glance__safe { margin: 1.5rem 0 0; padding-top: 1.25rem; border-top: 1px solid rgba(0, 240, 255, 0.12); color: #E6F1FF; font-size: 1rem; line-height: 1.6; }
+      .pool-glance__safe strong { color: #B8FF00; font-weight: 600; }
+      @media (min-width: 900px) {
+        .pool-glance__facts { grid-template-columns: repeat(4, minmax(0, 1fr)) max-content; }
+      }
+      @media (max-width: 899px) {
+        .pool-glance__verify { grid-column: 1 / -1; }
+      }
+      @media (max-width: 640px) {
+        .pool-glance { padding: 1.25rem; margin-top: 2rem; }
+        .pool-glance__facts { grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .pool-glance dd { font-size: 1rem; }
+      }
       .faq-answer { color: #A6B3C2; line-height: 1.7; padding: 0 0 1.25rem; }
     </style>
     
@@ -1263,6 +1294,43 @@
                         [SIGN]
                     </span>
                 </div>
+
+                <!-- Pool at a glance: the facts a delegator checks before choosing a pool -->
+                <section class="pool-glance" aria-labelledby="pool-glance-title">
+                    <h2 id="pool-glance-title" class="pool-glance__title">[SIGN] at a glance</h2>
+                    <dl class="pool-glance__id">
+                        <div>
+                            <dt>Pool ID: check it in your wallet before delegating</dt>
+                            <dd class="pool-glance__id-row">
+                                <span id="pool-id" class="pool-glance__id-value">pool1h0prd5vcdv6uk7hglztdcqfp5czjqxdydxkxkdhg8rrk22mr4ym</span>
+                                <button type="button" class="pool-glance__copy" data-copy-target="pool-id" aria-live="polite" hidden>Copy ID</button>
+                            </dd>
+                        </div>
+                    </dl>
+                    <dl class="pool-glance__facts">
+                            <div>
+                                <dt>Margin</dt>
+                                <dd>0%</dd>
+                            </div>
+                            <div>
+                                <dt>Fixed cost</dt>
+                                <dd>170 ADA <small>per epoch, the protocol minimum</small></dd>
+                            </div>
+                            <div>
+                                <dt>On Mainnet since</dt>
+                                <dd><time datetime="2020-07-30">30 Jul 2020</time> <small>first block in epoch 212</small></dd>
+                            </div>
+                            <div>
+                                <dt>Latest update</dt>
+                                <dd><a href="#updates"><time id="pool-latest-update" datetime="2026-11-22">22 Nov 2026</time></a></dd>
+                            </div>
+                            <div class="pool-glance__verify">
+                                <dt>Verify on-chain</dt>
+                                <dd><a href="https://cexplorer.io/pool/pool1h0prd5vcdv6uk7hglztdcqfp5czjqxdydxkxkdhg8rrk22mr4ym" target="_blank" rel="noopener noreferrer">Cexplorer</a> · <a href="https://pooltool.io/pool/bbc236d1986b35cb7ae8f896dc0121a6052019a469ac6b36e838c765/" target="_blank" rel="noopener noreferrer">PoolTool</a></dd>
+                            </div>
+                    </dl>
+                    <p class="pool-glance__safe"><strong>Your ADA never leave your wallet.</strong> No lock-up, no minimum: you can spend, move or re-delegate them at any time. <a href="#faq">Read the FAQ</a></p>
+                </section>
             </div>
         </div>
     </header>
@@ -1409,20 +1477,20 @@
                 <p class="text-text-secondary mb-4">Signature is live since ITN epoch #813 (January, 16, 2020)</p>
                 <p class="text-text-secondary mb-4">Signature is live on Mainnet since July 30, 2020.</p>
                 <p class="text-2xl text-accent-lime font-bold mb-6">— Ticker: [SIGN] —</p>
-                <p class="text-text-secondary mb-4">Pool Node ID:</p>
+                <p class="text-text-secondary mb-4">Pool ID (hex):</p>
                 <div class="mb-6 font-mono text-sm text-accent-cyan break-all">
                     bbc236d1986b35cb7ae8f896dc0121a6052019a469ac6b36e838c765
                 </div>
-                <p class="text-text-secondary mb-4">PoolId:</p>
+                <p class="text-text-secondary mb-4">PoolTool:</p>
                 <div class="mb-4 overflow-hidden">
                     <a href="https://pooltool.io/pool/bbc236d1986b35cb7ae8f896dc0121a6052019a469ac6b36e838c765/" target="_blank" rel="nofollow noopener noreferrer" class="text-accent-cyan hover:text-accent-lime transition-colors duration-200 break-all text-sm md:text-base leading-relaxed block">
                         https://pooltool.io/pool/bbc236d1986b35cb7ae8f896dc0121a6052019a469ac6b36e838c765/
                     </a>
                 </div>
-                <p class="text-text-secondary mb-4">Adapools:</p>
+                <p class="text-text-secondary mb-4">Cexplorer:</p>
                 <div class="mb-4 overflow-hidden">
-                    <a href="https://adapools.org/pool/bbc236d1986b35cb7ae8f896dc0121a6052019a469ac6b36e838c765/" target="_blank" rel="nofollow noopener noreferrer" class="text-accent-cyan hover:text-accent-lime transition-colors duration-200 break-all text-sm md:text-base leading-relaxed block">
-                        https://adapools.org/pool/bbc236d1986b35cb7ae8f896dc0121a6052019a469ac6b36e838c765/
+                    <a href="https://cexplorer.io/pool/pool1h0prd5vcdv6uk7hglztdcqfp5czjqxdydxkxkdhg8rrk22mr4ym" target="_blank" rel="nofollow noopener noreferrer" class="text-accent-cyan hover:text-accent-lime transition-colors duration-200 break-all text-sm md:text-base leading-relaxed block">
+                        https://cexplorer.io/pool/pool1h0prd5vcdv6uk7hglztdcqfp5czjqxdydxkxkdhg8rrk22mr4ym
                     </a>
                 </div>
                 <p class="text-text-secondary mb-4">Cardano Explorer:</p>

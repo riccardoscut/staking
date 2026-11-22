@@ -129,6 +129,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Pool at a glance: latest update date comes from the updates log
+  const latestUpdateEl = document.getElementById("pool-latest-update");
+  if (latestUpdateEl && Array.isArray(window.pageContent.updates) && window.pageContent.updates.length) {
+    const latest = window.pageContent.updates.map(u => u.date).sort().pop();
+    latestUpdateEl.setAttribute("datetime", latest);
+    latestUpdateEl.textContent = new Date(latest + "T00:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
+  }
+
+  // Pool at a glance: copy-to-clipboard for the pool ID (button stays hidden without JS/clipboard)
+  document.querySelectorAll("[data-copy-target]").forEach(button => {
+    const target = document.getElementById(button.dataset.copyTarget);
+    if (!target || !navigator.clipboard) return;
+    const label = button.textContent;
+    let resetTimer;
+    button.hidden = false;
+    button.addEventListener("click", () => {
+      navigator.clipboard.writeText(target.textContent.trim()).then(() => {
+        button.textContent = "Copied";
+        button.dataset.state = "done";
+      }, () => {
+        button.textContent = "Copy failed: select the ID";
+      }).finally(() => {
+        clearTimeout(resetTimer);
+        resetTimer = setTimeout(() => { button.textContent = label; delete button.dataset.state; }, 2000);
+      });
+    });
+  });
+
   // Render FAQ accordion and its schema.org FAQPage data
   const faqList = document.getElementById("faq-list");
   if (faqList && Array.isArray(window.pageContent.faq)) {
