@@ -116,7 +116,7 @@ section[id], #main { scroll-margin-top: 3.75rem; }
 /* Small, meaningful touches of yellow: the SIGN in the title, the step count and numbers,
    the newest update (next departure), the ticker, an open FAQ answer */
 .hl { color: var(--signal); }
-.hl--lower { text-transform: lowercase; }
+.lower { text-transform: lowercase; }
 .details dd.hl { color: var(--signal); }
 /* Updates rows and Pool details cells light up yellow one at a time on hover */
 .departure time, .departure__title, .departure__type, .details dt, .details dd, .details dd a { transition: color 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out); }
