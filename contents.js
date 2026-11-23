@@ -161,6 +161,7 @@ Let's make it right, delegate to [SIGN].`
       "answer": "Your delegation becomes active at the start of the second epoch after you delegate, and the rewards for that epoch are paid at the end of the following one. In practice the first rewards arrive about 15–20 days after delegating, then automatically every 5 days."
     },
     {
+      "id": "faq-fees",
       "question": "What fees does SIGN charge?",
       "answer": "SIGN currently has a **0% margin** and a fixed cost of **170 ADA per epoch**, the minimum allowed by the protocol. The fixed cost is shared by all delegators and is only deducted in epochs where the pool produces blocks."
     },

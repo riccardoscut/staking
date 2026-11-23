@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const faq = document.getElementById("faq-list");
   if (faq && Array.isArray(C.faq)) {
     faq.innerHTML = C.faq.map(f => `
-      <details class="faq-item">
+      <details class="faq-item"${f.id ? ` id="${f.id}"` : ""}>
         <summary class="faq-question"><span>${f.question}</span>${PLUS_ICON}</summary>
         <div class="faq-answer">${markdownToHtml(f.answer)}</div>
       </details>`).join("");
@@ -112,6 +112,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     document.head.appendChild(schema);
   }
+
+  // A link to a FAQ question (e.g. the board's Margin / Fixed cost labels) opens it
+  // (also when the hash is already in the URL and the question was closed again)
+  const openDetails = id => {
+    const target = id && document.getElementById(id);
+    if (target && target.tagName === "DETAILS") target.open = true;
+  };
+  document.addEventListener("click", e => {
+    const a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (a) openDetails(a.getAttribute("href").slice(1));
+  });
+  window.addEventListener("hashchange", () => openDetails(location.hash.slice(1)));
+  openDetails(location.hash.slice(1));
 
   // Current Cardano epoch: epoch 208 started 2020-07-29 21:44:51 UTC, epochs last 5 days
   const epochEl = document.getElementById("current-epoch");
@@ -309,9 +322,7 @@ document.addEventListener("DOMContentLoaded", function () {
   boardCells.flat().forEach(tile => {
     tile.classList.add("flap--toy");
     if (reduceMotion) return;
-    tile.addEventListener("click", e => {
-      e.preventDefault(); // the latest-update tiles sit inside a link
-      e.stopPropagation();
+    tile.addEventListener("click", () => {
       const speed = SPEEDS[Math.floor(Math.random() * SPEEDS.length)];
       const turns = speed.turns[0] + Math.floor(Math.random() * (speed.turns[1] - speed.turns[0] + 1));
       spinTile(tile, turns, speed.min, speed.spread);

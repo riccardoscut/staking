@@ -30,7 +30,7 @@
       /* apply the saved colour theme before the first paint (no flash) */
       try { var q = new URLSearchParams(location.search).get("theme"); document.documentElement.dataset.theme = (q || localStorage.getItem("sign-theme")) === "light" ? "light" : "dark"; } catch (e) {}
     </script>
-    <link rel="stylesheet" href="/board.css?v=5">
+    <link rel="stylesheet" href="/board.css?v=6">
 </head>
 <body>
     <a class="skip" href="#main">Skip to content</a>
@@ -61,14 +61,14 @@
                         <span>Cardano Mainnet</span><span class="board__epoch">Epoch <span id="current-epoch">669</span></span>
                     </div>
                     <div class="board__row board__row--main">
-                        <div class="board__cell"><span class="board__label">Ticker</span><span class="flaps" data-flap>[SIGN]</span></div>
-                        <div class="board__cell"><span class="board__label">Status</span><span class="flaps flaps--signal" data-flap>In service</span><p class="board__meta">Since the Incentivized Testnet, Jan 2020</p></div>
-                        <div class="board__cell"><span class="board__label">On Mainnet since</span><span class="flaps flaps--md" data-flap><time datetime="2020-07-30">30.07.2020</time></span><p class="board__meta">First block in epoch 212</p></div>
+                        <div class="board__cell"><a class="board__label" href="#pool-details">Ticker</a><span class="flaps" data-flap>[SIGN]</span></div>
+                        <div class="board__cell"><a class="board__label" href="#pool-details">Status</a><span class="flaps flaps--signal" data-flap>In service</span><p class="board__meta">Since the Incentivized Testnet, Jan 2020</p></div>
+                        <div class="board__cell"><a class="board__label" href="#pool-details">On Mainnet since</a><span class="flaps flaps--md" data-flap><time datetime="2020-07-30">30.07.2020</time></span><p class="board__meta">First block in epoch 212</p></div>
                     </div>
                     <div class="board__row">
-                        <div class="board__cell"><span class="board__label">Margin</span><span class="flaps" data-flap>0%</span></div>
-                        <div class="board__cell"><span class="board__label">Fixed cost</span><span class="flaps" data-flap>170 ADA</span><p class="board__meta">Per epoch, the protocol minimum</p></div>
-                        <div class="board__cell"><span class="board__label">Latest update</span><span class="flaps flaps--md" data-flap><a href="#updates"><time id="pool-latest-update" datetime="2026-11-22">22.11.2026</time></a></span></div>
+                        <div class="board__cell"><a class="board__label" href="#faq-fees">Margin</a><span class="flaps" data-flap>0%</span></div>
+                        <div class="board__cell"><a class="board__label" href="#faq-fees">Fixed cost</a><span class="flaps" data-flap>170 ADA</span><p class="board__meta">Per epoch, the protocol minimum</p></div>
+                        <div class="board__cell"><a class="board__label" href="#updates">Latest update</a><span class="flaps flaps--md" data-flap><time id="pool-latest-update" datetime="2026-11-22">22.11.2026</time></span></div>
                     </div>
                     <div class="board__row board__row--id">
                         <div class="board__id">
@@ -256,7 +256,7 @@
                         <summary class="faq-question"><span>When do I receive my rewards?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
                         <div class="faq-answer">Your delegation becomes active at the start of the second epoch after you delegate, and the rewards for that epoch are paid at the end of the following one. In practice the first rewards arrive about 15–20 days after delegating, then automatically every 5 days.</div>
                     </details>
-                    <details class="faq-item">
+                    <details class="faq-item" id="faq-fees">
                         <summary class="faq-question"><span>What fees does SIGN charge?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
                         <div class="faq-answer">SIGN currently has a <strong>0% margin</strong> and a fixed cost of <strong>170 ADA per epoch</strong>, the minimum allowed by the protocol. The fixed cost is shared by all delegators and is only deducted in epochs where the pool produces blocks.</div>
                     </details>
@@ -331,8 +331,8 @@
     </script>
 
     <script src="/snarkdown-2.0.0.min.js"></script>
-    <script src="/contents.js?v=202611221414"></script>
-    <script src="/script.js?v=202611221414"></script>
+    <script src="/contents.js?v=202611232318"></script>
+    <script src="/script.js?v=202611232318"></script>
     <script data-goatcounter="https://staking.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

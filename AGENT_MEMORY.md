@@ -26,7 +26,7 @@ _Last updated: 2026-11-22._
 - Riccardo's description everywhere: "Data Scientist | AI Modeler | Cognitive Psychologist | Reflexologist"; on this site his role is "Linux server Administrator".
 
 ## Do not redo
-- Do not reintroduce: neon/glow/glass look, Tailwind CDN, the sun/moon toggle, yields in %, Binance, Yoroi or EMURGO links, a forced reorder of the pool ID row on mobile (it stays last).
+- Do not reintroduce: the old neon/glass look (glow is allowed only as an accent: DESIGN.md, The Accent Light Rule), Tailwind CDN, the sun/moon toggle, yields in %, Binance, Yoroi or EMURGO links, a forced reorder of the pool ID row on mobile (it stays last).
 - Do not touch `poolMetaData.json`, `sign-metadata-extended.json`, `sign-logo-small.png` (on-chain metadata).
 - `sign.jpeg` is kept on purpose (old public URL, maybe linked externally).
 

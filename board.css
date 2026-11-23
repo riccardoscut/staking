@@ -49,7 +49,6 @@
    as in the dark theme; controls use yellow fills / underlines with dark ink to stay legible. */
 :root[data-theme="light"] :focus-visible { outline-color: var(--ink); }
 :root[data-theme="light"] a:hover { color: var(--ink); text-decoration-color: var(--signal-fill); text-decoration-thickness: 3px; }
-:root[data-theme="light"] .flaps a:hover .flap { color: var(--ink); box-shadow: inset 0 -3px 0 var(--signal-fill); }
 :root[data-theme="light"] .theme-lock[aria-pressed="true"] { background: var(--signal-fill); color: var(--signal-ink); }
 :root[data-theme="light"] .btn--line:hover { border-color: var(--ink); color: var(--ink); background: var(--signal-fill); }
 :root[data-theme="light"] .social a:hover { color: var(--signal-ink); background: var(--signal-fill); border-color: var(--signal-fill); }
@@ -93,6 +92,9 @@ a:hover { color: var(--signal); text-decoration-color: var(--signal); }
 .topbar.is-compact .theme-lock svg { width: 0.95rem; height: 0.95rem; }
 .theme-lock, .theme-lock svg { transition: width 0.25s var(--ease-out), height 0.25s var(--ease-out), color 0.2s var(--ease-out), border-color 0.2s var(--ease-out); }
 section[id], #main { scroll-margin-top: 3.75rem; }
+/* a linked FAQ question has no section padding above it: leave room for the top bar,
+   which is still tall when the jump starts from the top of the page */
+.faq-item[id] { scroll-margin-top: 5.5rem; }
 .topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: 4.5rem; }
 .brand { display: inline-flex; align-items: baseline; gap: 0.6rem; text-decoration: none; color: var(--ink); font-family: var(--cond); font-weight: 800; font-size: 1.75rem; letter-spacing: 0.01em; }
 .brand__mark { font-weight: 600; letter-spacing: 0.02em; }
@@ -138,13 +140,14 @@ section[id], #main { scroll-margin-top: 3.75rem; }
 .board__epoch { color: var(--signal); }
 .board__cell { min-width: 0; }
 .board__label { display: block; font-family: var(--cond); font-weight: 600; font-size: 0.9375rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.4rem; }
+/* board labels are links to the section that explains the value; the tiles stay a toy */
+a.board__label { width: fit-content; text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--ink-3) 50%, transparent); text-decoration-thickness: 1px; text-underline-offset: 4px; }
+a.board__label:hover { color: var(--signal); text-decoration-color: var(--signal); }
 
 /* split-flap tiles: static text is the source; script.js splits it into tiles */
 .flaps { display: inline-flex; flex-wrap: wrap; gap: 0.2rem 0.35em; font-family: var(--cond); font-weight: 800; font-size: clamp(1.6rem, 2.9vw, 2.5rem); line-height: 1; text-transform: uppercase; font-variant-numeric: tabular-nums; color: var(--ink); }
 .flaps--md { font-size: clamp(1.15rem, 2vw, 1.85rem); }
 .flap-word { display: inline-flex; flex-wrap: nowrap; gap: 0.2rem; white-space: nowrap; }
-.flaps a { text-decoration: none; color: inherit; display: inline-flex; gap: 0.2rem; }
-.flaps a:hover .flap { color: var(--signal); }
 .flaps time { display: inline-flex; flex-wrap: wrap; gap: 0.2rem 0.35em; }
 .flaps--signal { color: var(--signal); }
 .flaps:not(.is-split) { background: var(--flap); padding: 0.35rem 0.5rem; border-radius: 0.2rem; }
@@ -256,7 +259,7 @@ h3 { font-family: var(--cond); font-weight: 700; font-size: 1.625rem; line-heigh
 .faq-question svg { flex: none; width: 1.25rem; height: 1.25rem; margin-top: 0.2rem; color: var(--ink-2); transition: transform 0.25s var(--ease-out), color 0.2s var(--ease-out); }
 .faq-question:hover svg { color: var(--signal); }
 .faq-item[open] .faq-question svg { transform: rotate(45deg); }
-.faq-question:hover { color: var(--signal); }
+.faq-question:hover, .faq-item[open] .faq-question { color: var(--signal); }
 .faq-answer { color: var(--ink-2); padding: 0 0 1.25rem; max-width: 46em; }
 
 /* Footer */
@@ -287,6 +290,7 @@ h3 { font-family: var(--cond); font-weight: 700; font-size: 1.625rem; line-heigh
   .topbar.is-compact .nav { font-size: 0.8125rem; gap: 1rem; }
   .topbar.is-compact .nav a { padding: 0.25rem 0; }
   section[id] { scroll-margin-top: 4.5rem; }
+  .faq-item[id] { scroll-margin-top: 7.75rem; }
   .hero { padding-top: 1.5rem; }
   .board { padding: 0.25rem 1.1rem 1rem; }
   .board__row { grid-template-columns: 1fr; gap: 0.85rem; padding: 0.75rem 0; }

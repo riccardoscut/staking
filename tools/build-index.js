@@ -73,7 +73,7 @@ const blocks = {
     </div>
 </article>`).join("\n"),
 
-  faq: () => C.faq.map(f => `<details class="faq-item">
+  faq: () => C.faq.map(f => `<details class="faq-item"${f.id ? ` id="${f.id}"` : ""}>
     <summary class="faq-question"><span>${f.question}</span>${PLUS_ICON}</summary>
     <div class="faq-answer">${md(f.answer)}</div>
 </details>`).join("\n")

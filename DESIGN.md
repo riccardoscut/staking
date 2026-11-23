@@ -163,7 +163,7 @@ components:
 
 **Creative North Star: "The Departure Board"**
 
-The pool is posted like a train on a European station board: [SIGN] has been on the board since 2020, every epoch is a scheduled departure, every KES key rotation is a posted line. The world is a dim charcoal hall around matte board-black panels, with white characters on dark split-flap tiles cut by a hinge. One signal yellow marks what is live and what to do next. Nothing glows, nothing floats; information is mechanical, dated and checkable, which is the opposite of the neon crypto hero with stat cards.
+The pool is posted like a train on a European station board: [SIGN] has been on the board since 2020, every epoch is a scheduled departure, every KES key rotation is a posted line. The world is a dim charcoal hall around matte board-black panels, with white characters on dark split-flap tiles cut by a hinge. One signal yellow marks what is live and what to do next. Nothing floats, and light is an accent, never an atmosphere; information is mechanical, dated and checkable, which is the opposite of the neon crypto hero with stat cards.
 
 Density is that of real signage: condensed uppercase type at board scale for data and headings, a quiet humanist sans for reading, hairline rules between rows instead of boxes. Board panels hold data (pool status, departures, details); the hall holds prose (intro, guide, FAQ). Motion is a single mechanical event: the board's flaps flip once into place on load, staggered, under a second, and never under reduced motion.
 
@@ -173,7 +173,7 @@ This identity is the reusable core for the Signature Staking family, including t
 - Charcoal hall, board-black panels, dark flap tiles with a hairline hinge.
 - Signal yellow reserved for status, the primary action, and interaction feedback.
 - Barlow Condensed for board and headings, Barlow for reading, system mono for pool IDs.
-- Hairline rules between rows; no cards-in-cards, no glow, no glass.
+- Hairline rules between rows; no cards-in-cards, no glass; glow only as a short accent (The Accent Light Rule).
 - One mechanical flip on load; static text is always the source.
 - Brand marks written as text: logo `[./']`, ticker always `[SIGN]` in brackets.
 
@@ -241,7 +241,9 @@ Flat by construction. Depth comes from tonal grounds (Hall, Board Black, Hall Ra
 - **Outlined chip** (`box-shadow: inset 0 0 0 1px #9EA2A8`): the KES departure chip, an outline instead of a fill.
 
 ### Named Rules
-**The Hinge Rule.** Every flap tile is split hard at 50% (Flap Upper above, Flap below) with a 2px Hinge line across. That hard split is the world's only gradient; soft gradients, glow and glass are not part of it.
+**The Hinge Rule.** Every flap tile is split hard at 50% (Flap Upper above, Flap below) with a 2px Hinge line across. That hard split is the world's only gradient; soft gradients and glass are not part of it.
+
+**The Accent Light Rule.** Glow is an accent, not a look (owner decision, 2026-11-24). A short yellow halo may light up what matters while the visitor scrolls or hovers (board tiles, key rows, the primary action) to add life and catch the eye; it appears on interaction or briefly, then fades. Never an ambient neon look, never on body text, never blur or glass.
 
 ## Shapes
 
@@ -294,7 +296,7 @@ The reusable core of the identity, shared with the game's reels.
 - **Do** make the flip a single mechanical event under a second, static under reduced motion.
 
 ### Don't:
-- **Don't** use soft gradients, glow, neon, glass or blur; the flap's hard split is the only gradient.
+- **Don't** use soft gradients, ambient neon, glass or blur; the flap's hard split is the only gradient, and glow is only an accent (The Accent Light Rule).
 - **Don't** make the split-flap reels read as a slot machine: no fruit, coins, jackpot gold, red lights or flashing win effects; the flap glyph set is A–Z and 0–9.
 - **Don't** add a second accent color or use yellow for headings, backgrounds or decoration.
 - **Don't** set paragraphs in condensed uppercase.
@@ -315,6 +317,6 @@ Meaningful yellow touches (owner request, 2026-11-22): "SIGN" in yellow inside t
 
 Guide steps: on hover a step row gets a raised-hall background, its heading a 2px yellow underline (as the nav tabs) and its pictogram turns yellow.
 
-Board tiles as a toy (owner request): hovering a tile only lights a faint yellow halo (inner 1px at 50% plus a soft 12px halo at 28%, in 0.08 s) that fades out over 0.9 s, so sweeping the pointer leaves a stadium wave; letters never change on hover. Clicking a tile spins only that tile at a random speed: fast (6-9 turns, 40-52 ms), medium (9-13, 70-90 ms) or slow (12-17, 110-150 ms), then it settles back on its own character. Reduced motion: tiles only light up.
+Board tiles as a toy (owner request): hovering a tile only lights a faint yellow halo (inner 1px at 50% plus a soft 12px halo at 28%, in 0.08 s) that fades out over 0.9 s, so sweeping the pointer leaves a stadium wave; letters never change on hover. Board labels are links to the section that explains the value (owner decision, 2026-11-24): Ticker, Status and On Mainnet since go to Pool details; Margin and Fixed cost to the FAQ "What fees does SIGN charge?" (it opens by itself); Latest update to Updates. Labels carry a faint underline and turn yellow on hover; the tiles themselves are never links. Clicking a tile spins only that tile at a random speed: fast (6-9 turns, 40-52 ms), medium (9-13, 70-90 ms) or slow (12-17, 110-150 ms), then it settles back on its own character. Reduced motion: tiles only light up.
 
-FAQ questions turn yellow on hover in both themes.
+FAQ questions turn yellow on hover in both themes, and an open question stays yellow until it is closed.

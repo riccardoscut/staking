@@ -2,6 +2,13 @@
 
 All notable changes to staking.da-sign.com. Newest first. Each entry: date, what, why, commit.
 
+## 2026-11-24
+
+### Design
+- **Board labels are links.** Ticker, Status and On Mainnet since go to Pool details; Margin and Fixed cost to the FAQ "What fees does SIGN charge?", which opens by itself; Latest update to Updates. The old link on the latest-update date is gone: the tile click (spin) cancelled it, so it never worked with mouse or touch. Tiles stay a toy. *Why:* owner decision after the audit; every board entry now leads to its explanation.
+- **Open FAQ question stays yellow** until it is closed (both themes). *Why:* owner request.
+- **DESIGN.md: The Accent Light Rule.** Glow is allowed as a short accent on what matters (e.g. the tile halo), never as an ambient neon look. *Why:* owner decision; replaces the blanket "no glow" rule.
+
 ## 2026-11-22
 
 ### Content and trust
