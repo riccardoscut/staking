@@ -9,6 +9,7 @@ All notable changes to staking.da-sign.com. Newest first. Each entry: date, what
 - **Open FAQ question stays yellow** until it is closed (both themes). *Why:* owner request.
 - **Phone board layout.** Up to 640px, Ticker sits beside Status and Margin beside Fixed cost; the two dates (On Mainnet since, Latest update) stay alone on their own line. Tiles about a third smaller with tighter gaps, scaling down on narrow phones so IN SERVICE stays on one line down to 320px. *Why:* owner request; shorter board, the Copy pool ID button moves up about 160px on a 375px phone.
 - **0% margin in signal yellow.** *Why:* owner decision; it is the pool's main argument.
+- **Footer icons.** Reddit removed (profile never used), also from the Organization schema; GitHub now points to this site's repo (riccardoscut/staking) instead of the 2020 account. *Why:* owner decision; only active profiles.
 - **DESIGN.md: The Accent Light Rule.** Glow is allowed as a short accent on what matters (e.g. the tile halo), never as an ambient neon look. *Why:* owner decision; replaces the blanket "no glow" rule.
 
 ## 2026-11-22
