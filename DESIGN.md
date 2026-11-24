@@ -182,7 +182,7 @@ This identity is the reusable core for the Signature Staking family, including t
 A near-monochrome hall of warm-neutral blacks and greys with one signal yellow.
 
 ### Primary
-- **Signal Yellow** (#FFC20E): the status flaps ("IN SERVICE"), the current-epoch readout, the primary button ("Copy pool ID"), and feedback for interaction: link and nav hover, focus outline, text selection. Its scarcity is what makes "in service" read as a live state.
+- **Signal Yellow** (#FFC20E): the status flaps ("IN SERVICE"), the 0% margin flaps (the pool's main argument, owner decision 2026-11-24), the current-epoch readout, the primary button ("Copy pool ID"), and feedback for interaction: link and nav hover, focus outline, text selection. Its scarcity is what makes "in service" read as a live state.
 - **Signal Lit** (#FFD24D): hover state of the signal button only.
 - **Signal Ink** (#141414): text on any signal-yellow fill.
 
@@ -215,7 +215,7 @@ A near-monochrome hall of warm-neutral blacks and greys with one signal yellow.
 - **Display** (800, clamp 3.25–5.25rem, 0.92, uppercase): the page h1 only.
 - **Headline** (800, clamp 2.25–3.5rem, 1.0, uppercase): section titles.
 - **Title** (700, 1.625rem, 1.15; 1.875rem on guide steps): sub-heads, team names, step titles.
-- **Flap** (800, 2.5rem / 1.85rem medium, 1.0, uppercase, tabular figures): characters on split-flap tiles. Mobile 1.9rem / 1.45rem.
+- **Flap** (800, 2.5rem / 1.85rem medium, 1.0, uppercase, tabular figures): characters on split-flap tiles. Phones (≤640px): one size for all, min(1.2rem, 4.9vw), with 0.15rem tile gaps, so IN SERVICE stays on one line down to 320px.
 - **Board head / Label** (700 1.125rem 0.12em; 600 0.9375rem 0.1em, uppercase, Platform Grey Dim): column heads and field labels, as printed on a board.
 - **Button / Nav** (700 1.375rem 0.03em; 600 1.125rem 0.04em uppercase).
 - **Body** (400, 1.0625rem, 1.6): reading text, max 34–46em per block.
@@ -228,7 +228,7 @@ A near-monochrome hall of warm-neutral blacks and greys with one signal yellow.
 
 ## Layout
 
-A single centered column (max 72rem, 1.5rem side padding). The hero leads with the full-width board, then a two-column intro (h1 left, text and actions right, ratio 1.1:1). Sections are separated by a hairline top rule and 5rem padding (3.5rem on mobile). Board rows are three-column grids (1.15fr / 1.6fr / 1fr) with 1.5rem gaps and 0.75rem row padding; the departures list uses fixed columns (8.5rem date / 7rem type / remaining text). The guide uses a 9rem plate column beside the content.
+A single centered column (max 72rem, 1.5rem side padding). The hero leads with the full-width board, then a two-column intro (h1 left, text and actions right, ratio 1.1:1). Sections are separated by a hairline top rule and 5rem padding (3.5rem on mobile). Board rows are three-column grids (1.15fr / 1.6fr / 1fr) with 1.5rem gaps and 0.75rem row padding; on phones each row is two columns (auto / rest): Ticker beside Status and Margin beside Fixed cost, while the two dates (On Mainnet since, Latest update) sit alone on their own line; the departures list uses fixed columns (8.5rem date / 7rem type / remaining text). The guide uses a 9rem plate column beside the content.
 
 Breakpoints: at 900px board rows drop to two columns and the intro and team stack; at 640px everything is one column, the nav becomes a horizontally scrolling strip, board panels tighten to 1.1rem side padding, the departures header hides, and the board reorders so status and pool ID come first.
 

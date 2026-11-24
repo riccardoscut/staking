@@ -30,7 +30,7 @@
       /* apply the saved colour theme before the first paint (no flash) */
       try { var q = new URLSearchParams(location.search).get("theme"); document.documentElement.dataset.theme = (q || localStorage.getItem("sign-theme")) === "light" ? "light" : "dark"; } catch (e) {}
     </script>
-    <link rel="stylesheet" href="/board.css?v=6">
+    <link rel="stylesheet" href="/board.css?v=7">
 </head>
 <body>
     <a class="skip" href="#main">Skip to content</a>
@@ -66,7 +66,7 @@
                         <div class="board__cell"><a class="board__label" href="#pool-details">On Mainnet since</a><span class="flaps flaps--md" data-flap><time datetime="2020-07-30">30.07.2020</time></span><p class="board__meta">First block in epoch 212</p></div>
                     </div>
                     <div class="board__row">
-                        <div class="board__cell"><a class="board__label" href="#faq-fees">Margin</a><span class="flaps" data-flap>0%</span></div>
+                        <div class="board__cell"><a class="board__label" href="#faq-fees">Margin</a><span class="flaps flaps--signal" data-flap>0%</span></div>
                         <div class="board__cell"><a class="board__label" href="#faq-fees">Fixed cost</a><span class="flaps" data-flap>170 ADA</span><p class="board__meta">Per epoch, the protocol minimum</p></div>
                         <div class="board__cell"><a class="board__label" href="#updates">Latest update</a><span class="flaps flaps--md" data-flap><time id="pool-latest-update" datetime="2026-11-22">22.11.2026</time></span></div>
                     </div>

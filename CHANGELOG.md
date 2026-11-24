@@ -7,6 +7,8 @@ All notable changes to staking.da-sign.com. Newest first. Each entry: date, what
 ### Design
 - **Board labels are links.** Ticker, Status and On Mainnet since go to Pool details; Margin and Fixed cost to the FAQ "What fees does SIGN charge?", which opens by itself; Latest update to Updates. The old link on the latest-update date is gone: the tile click (spin) cancelled it, so it never worked with mouse or touch. Tiles stay a toy. *Why:* owner decision after the audit; every board entry now leads to its explanation.
 - **Open FAQ question stays yellow** until it is closed (both themes). *Why:* owner request.
+- **Phone board layout.** Up to 640px, Ticker sits beside Status and Margin beside Fixed cost; the two dates (On Mainnet since, Latest update) stay alone on their own line. Tiles about a third smaller with tighter gaps, scaling down on narrow phones so IN SERVICE stays on one line down to 320px. *Why:* owner request; shorter board, the Copy pool ID button moves up about 160px on a 375px phone.
+- **0% margin in signal yellow.** *Why:* owner decision; it is the pool's main argument.
 - **DESIGN.md: The Accent Light Rule.** Glow is allowed as a short accent on what matters (e.g. the tile halo), never as an ambient neon look. *Why:* owner decision; replaces the blanket "no glow" rule.
 
 ## 2026-11-22
