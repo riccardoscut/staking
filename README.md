@@ -25,6 +25,7 @@ A single static page, served by GitHub Pages from the `main` branch. No framewor
 Edit `contents.js`; markdown is allowed in the texts (`[text](https://...)`, `**bold**`).
 
 - **Updates**: add one line to `"updates"`, newest anywhere (the page sorts by date). Fields: `date` (`YYYY-MM-DD`), `type` (`KES`, `Software`, `Hardware`, `Pool` or `Team`), `title`, `text`. The "Latest update" date on the board follows automatically.
+- **FAQ**: each entry has `question` and `answer`; an optional `id` (e.g. `"faq-fees"`) gives it an anchor, and a link to `#that-id` opens the question. The board's Margin and Fixed cost labels link to `#faq-fees`: keep that id.
 - **Team**: edit `contents.js`, run the refresh script below, and update the schema.org block in `index.html` by hand when names or roles change.
 - **Never promise returns**: no fixed or guaranteed yields anywhere (texts, meta tags, schema.org).
 - Write the ticker as **[SIGN]**, with brackets.
@@ -48,6 +49,7 @@ The script only rewrites what sits between the `<!-- build:NAME -->` and `<!-- /
 ## Behaviour worth knowing
 
 - Clicking the logo goes back to the top, refreshes the board and switches dark/light, unless the padlock next to it is closed. The choice is saved in the browser.
-- Board tiles light up when hovered; clicking a tile spins it.
+- Board tiles light up when hovered; clicking a tile spins it. The small labels above the tiles are links: Ticker, Status and On Mainnet since go to Pool details, Margin and Fixed cost to the fees question in the FAQ, Latest update to Updates.
+- On phones the board shows Ticker beside Status and Margin beside Fixed cost, with smaller tiles.
 - Reduced-motion settings are respected: no spinning, instant theme switch.
 - Analytics: GoatCounter (`staking.goatcounter.com`).
